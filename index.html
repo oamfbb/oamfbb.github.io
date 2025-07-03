@@ -6,40 +6,31 @@
   <title>Obchodná akadémia Mareka Frauwirtha Banská Bystrica</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
   <style>
-    /* Reset a základ */
     * {
       box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+      margin: 0; padding: 0;
     }
-
     body {
       font-family: 'Poppins', sans-serif;
       background: #f4f7f9;
       color: #333;
-      line-height: 1.6;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
     }
-
-    /* Hlavička */
     header {
       display: flex;
       align-items: center;
-      justify-content: space-between;
       padding: 1rem 2rem;
       background: linear-gradient(90deg, #1b5e20, #4caf50);
       color: white;
       box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     }
-
     header .logo-container {
       display: flex;
       align-items: center;
       gap: 1rem;
     }
-
     header .logo {
       height: 60px;
       width: 60px;
@@ -49,121 +40,8 @@
       object-fit: contain;
       border: 2px solid #fff;
       box-shadow: 0 0 6px rgba(255,255,255,0.5);
+      flex-shrink: 0;
     }
-
     header h1 {
       font-weight: 600;
       font-size: 1.6rem;
-      white-space: nowrap;
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
-    }
-
-    /* Navigácia */
-    nav {
-      display: flex;
-      gap: 1.2rem;
-    }
-
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: 600;
-      padding: 0.5rem 0.8rem;
-      border-radius: 4px;
-      transition: background-color 0.3s ease;
-    }
-
-    nav a:hover,
-    nav a:focus {
-      background-color: rgba(255,255,255,0.2);
-      outline: none;
-    }
-
-    /* Hlavný obsah */
-    main {
-      flex: 1;
-      max-width: 900px;
-      margin: 2rem auto;
-      background: white;
-      padding: 2rem;
-      border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-
-    main h2 {
-      margin-bottom: 1rem;
-      color: #2e7d32;
-      font-weight: 700;
-      border-bottom: 3px solid #4caf50;
-      padding-bottom: 0.3rem;
-    }
-
-    /* Video */
-    .video-container {
-      position: relative;
-      padding-bottom: 56.25%; /* 16:9 */
-      height: 0;
-      overflow: hidden;
-      border-radius: 8px;
-      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
-      margin-bottom: 2rem;
-    }
-
-    .video-container iframe {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      border: none;
-    }
-
-    /* Responzívnosť */
-    @media (max-width: 600px) {
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.8rem;
-      }
-
-      nav {
-        flex-wrap: wrap;
-        gap: 0.7rem;
-      }
-
-      main {
-        margin: 1rem;
-        padding: 1rem;
-      }
-
-      header h1 {
-        font-size: 1.3rem;
-      }
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <div class="logo-container">
-      <img src="oa.png" alt="Logo školy" class="logo" />
-      <h1>Obchodná akadémia Mareka Frauwirtha Banská Bystrica</h1>
-    </div>
-    <nav>
-      <a href="#">Domov</a>
-      <a href="#">O nás</a>
-      <a href="#">História</a>
-      <a href="#">Uchádzači</a>
-      <a href="#">Štúdium</a>
-      <a href="#">Maturita</a>
-      <a href="#">Projekty</a>
-      <a href="#">Dokumentácia</a>
-      <a href="#">Kontakt</a>
-    </nav>
-  </header>
-  <main>
-    <h2>Uvítacie video</h2>
-    <div class="video-container">
-      <iframe src="https://www.youtube.com/embed/4AsE1m4rVSc" allowfullscreen title="Video OA"></iframe>
-    </div>
-    <p>Vitajte na oficiálnej stránke Obchodnej akadémie Mareka Frauwirtha v Banskej Bystrici. Prejdite si naše menu a nájdite všetky potrebné informácie o štúdiu, projektoch a novinkách.</p>
-  </main>
-</body>
-</html>
