@@ -15,23 +15,38 @@
     header {
       background: #2e7d32;
       color: white;
-      padding: 1rem;
+      display: flex;
+      align-items: center;
+      padding: 0 1rem;
       border-radius: 0 0 8px 8px;
-      text-align: center;
       width: 100vw;
       margin-left: calc(-50vw + 50%);
+      height: 140px; /* výška pásu */
+      box-sizing: border-box;
     }
     .logo {
-      display: block;
-      margin: 0 auto 1rem auto;
-      width: 140px;
-      height: 140px;
-      padding: 4px;
-      box-sizing: border-box;
-      object-fit: contain;
+      height: 120px;
+      width: 120px;
       border-radius: 50%;
       border: 3px solid white;
       background: white;
+      object-fit: contain;
+      margin-right: 1rem;
+      flex-shrink: 0; /* nezmenšovať logo */
+    }
+    .header-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .header-text h1 {
+      margin: 0;
+      font-size: 1.5rem;
+    }
+    .header-text p {
+      margin: 0;
+      font-size: 1rem;
+      opacity: 0.8;
     }
     section {
       margin-top: 2rem;
@@ -41,7 +56,17 @@
 <body>
   <header>
     <img src="logow.jpg" alt="Logo školy" class="logo" />
-    <h1>Obchodná akadémia Mareka Frauwirtha</h1>
-    <p>Oficiálna webová stránka školy</p>
+    <div class="header-text">
+      <h1>Obchodná akadémia Mareka Frauwirtha</h1>
+      <p>Oficiálna webová stránka školy</p>
+    </div>
   </header>
-  <se
+  <section>
+    <h2>Aktuálne oznamy</h2>
+    <ul>
+      <li>📅 2. 9. 2025 – Začiatok školského roka</li>
+      <li>🚌 Informácie o doprave a rozvrhoch</li>
+    </ul>
+  </section>
+</body>
+</html>
