@@ -45,22 +45,23 @@
       text-overflow: ellipsis;
       line-height: 1.1;
     }
-    /* Layout s sidebarom */
+    /* Layout s sidebarom bez medzery */
     .container {
       display: flex;
       max-width: 1000px;
       margin: 2rem auto;
-      padding: 0 1rem;
+      padding: 0;
       box-sizing: border-box;
     }
     nav.sidebar {
       background: #4caf50;
       width: 200px;
-      border-radius: 8px;
+      border-radius: 8px 0 0 8px;
       padding: 1rem;
       box-sizing: border-box;
       display: flex;
       flex-direction: column;
+      margin: 0; /* odstránenie medzier */
     }
     nav.sidebar a {
       color: white;
@@ -77,12 +78,31 @@
     }
     main.content {
       flex: 1;
-      margin-left: 1rem;
+      margin-left: 0; /* žiadna medzera od menu */
       background: white;
       padding: 1rem;
-      border-radius: 8px;
+      border-radius: 0 8px 8px 0;
       box-shadow: 0 0 5px rgba(0,0,0,0.1);
       box-sizing: border-box;
+    }
+    /* YouTube video responzívne */
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 ratio */
+      padding-top: 25px;
+      height: 0;
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.2);
+      margin-bottom: 1rem;
+    }
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
     }
   </style>
 </head>
@@ -109,11 +129,10 @@
     
     <main class="content">
       <section>
-        <h2>Aktuálne oznamy</h2>
-        <ul>
-          <li>📅 2. 9. 2025 – Začiatok školského roka</li>
-          <li>🚌 Informácie o doprave a rozvrhoch</li>
-        </ul>
+        <h2>Video predstavenie školy</h2>
+        <div class="video-container">
+          <iframe src="https://www.youtube.com/embed/4AsE1m4rVSc" title="YouTube video" allowfullscreen></iframe>
+        </div>
       </section>
     </main>
   </div>
