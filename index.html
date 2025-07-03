@@ -10,6 +10,7 @@
       background: #f9f9f9;
       margin: 0;
       padding: 0;
+      overflow-x: hidden; /* zabráni horizontálnemu posunu */
     }
     header {
       background: #2e7d32;
@@ -45,13 +46,14 @@
       text-overflow: ellipsis;
       line-height: 1.1;
     }
-    /* Layout s sidebarom bez medzery */
+    /* Layout s sidebarom pritlačeným úplne doľava */
     .container {
       display: flex;
       max-width: 1000px;
-      margin: 2rem auto;
+      margin: 2rem 0;
       padding: 0;
       box-sizing: border-box;
+      width: 100vw; /* celá šírka obrazovky */
     }
     nav.sidebar {
       background: #4caf50;
@@ -61,7 +63,7 @@
       box-sizing: border-box;
       display: flex;
       flex-direction: column;
-      margin: 0; /* odstránenie medzier */
+      margin: 0;
     }
     nav.sidebar a {
       color: white;
@@ -78,7 +80,7 @@
     }
     main.content {
       flex: 1;
-      margin-left: 0; /* žiadna medzera od menu */
+      margin-left: 0;
       background: white;
       padding: 1rem;
       border-radius: 0 8px 8px 0;
@@ -88,7 +90,7 @@
     /* YouTube video responzívne */
     .video-container {
       position: relative;
-      padding-bottom: 56.25%; /* 16:9 ratio */
+      padding-bottom: 56.25%; /* 16:9 pomer */
       padding-top: 25px;
       height: 0;
       overflow: hidden;
