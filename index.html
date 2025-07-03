@@ -21,7 +21,7 @@
       border-radius: 0 0 8px 8px;
       width: 100vw;
       margin-left: calc(-50vw + 50%);
-      height: 140px; /* výška pásu */
+      height: 140px;
       box-sizing: border-box;
     }
     .logo {
@@ -32,21 +32,18 @@
       background: white;
       object-fit: contain;
       margin-right: 1rem;
-      flex-shrink: 0; /* nezmenšovať logo */
+      flex-shrink: 0;
     }
     .header-text {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+      flex: 1;
     }
     .header-text h1 {
       margin: 0;
-      font-size: 1.5rem;
-    }
-    .header-text p {
-      margin: 0;
-      font-size: 1rem;
-      opacity: 0.8;
+      font-size: 2.2rem; /* väčší nápis */
+      font-weight: bold;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
     section {
       margin-top: 2rem;
@@ -58,7 +55,6 @@
     <img src="logow.jpg" alt="Logo školy" class="logo" />
     <div class="header-text">
       <h1>Obchodná akadémia Mareka Frauwirtha</h1>
-      <p>Oficiálna webová stránka školy</p>
     </div>
   </header>
   <section>
