@@ -39,11 +39,12 @@
     }
     .header-text h1 {
       margin: 0;
-      font-size: 2.8rem; /* ešte väčší nápis */
+      font-size: 1.8rem;  /* zmenšené písmo, aby sa zmestilo */
       font-weight: bold;
-      white-space: nowrap;
+      white-space: nowrap;  /* jeden riadok */
       overflow: hidden;
-      text-overflow: ellipsis;
+      text-overflow: ellipsis; /* tri bodky, ak sa nezmestí */
+      line-height: 1.1;
     }
     section {
       margin-top: 2rem;
@@ -53,4 +54,16 @@
 <body>
   <header>
     <img src="logow.jpg" alt="Logo školy" class="logo" />
-    <div cl
+    <div class="header-text">
+      <h1>Obchodná akadémia Mareka Frauwirtha Banská Bystrica</h1>
+    </div>
+  </header>
+  <section>
+    <h2>Aktuálne oznamy</h2>
+    <ul>
+      <li>📅 2. 9. 2025 – Začiatok školského roka</li>
+      <li>🚌 Informácie o doprave a rozvrhoch</li>
+    </ul>
+  </section>
+</body>
+</html>
