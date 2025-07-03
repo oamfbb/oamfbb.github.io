@@ -8,9 +8,8 @@
     body {
       font-family: sans-serif;
       background: #f9f9f9;
-      padding: 2rem;
-      max-width: 800px;
-      margin: auto;
+      margin: 0;
+      padding: 0;
     }
     header {
       background: #2e7d32;
@@ -39,15 +38,51 @@
     }
     .header-text h1 {
       margin: 0;
-      font-size: 1.8rem;  /* zmenšené písmo, aby sa zmestilo */
+      font-size: 1.8rem;
       font-weight: bold;
-      white-space: nowrap;  /* jeden riadok */
+      white-space: nowrap;
       overflow: hidden;
-      text-overflow: ellipsis; /* tri bodky, ak sa nezmestí */
+      text-overflow: ellipsis;
       line-height: 1.1;
     }
-    section {
-      margin-top: 2rem;
+    /* Layout s sidebarom */
+    .container {
+      display: flex;
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+      box-sizing: border-box;
+    }
+    nav.sidebar {
+      background: #4caf50;
+      width: 200px;
+      border-radius: 8px;
+      padding: 1rem;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+    }
+    nav.sidebar a {
+      color: white;
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      font-weight: 600;
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+    }
+    nav.sidebar a:hover {
+      background-color: #388e3c;
+    }
+    main.content {
+      flex: 1;
+      margin-left: 1rem;
+      background: white;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+      box-sizing: border-box;
     }
   </style>
 </head>
@@ -58,12 +93,30 @@
       <h1>Obchodná akadémia Mareka Frauwirtha Banská Bystrica</h1>
     </div>
   </header>
-  <section>
-    <h2>Aktuálne oznamy</h2>
-    <ul>
-      <li>📅 2. 9. 2025 – Začiatok školského roka</li>
-      <li>🚌 Informácie o doprave a rozvrhoch</li>
-    </ul>
-  </section>
+  
+  <div class="container">
+    <nav class="sidebar">
+      <a href="#">Domov</a>
+      <a href="#">O nás</a>
+      <a href="#">História</a>
+      <a href="#">Uchádzači</a>
+      <a href="#">Štúdium</a>
+      <a href="#">Maturita</a>
+      <a href="#">Projekty</a>
+      <a href="#">Dokumentácia</a>
+      <a href="#">Kontakt</a>
+    </nav>
+    
+    <main class="content">
+      <section>
+        <h2>Aktuálne oznamy</h2>
+        <ul>
+          <li>📅 2. 9. 2025 – Začiatok školského roka</li>
+          <li>🚌 Informácie o doprave a rozvrhoch</li>
+        </ul>
+      </section>
+    </main>
+  </div>
+  
 </body>
 </html>
