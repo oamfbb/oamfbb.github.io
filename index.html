@@ -327,15 +327,15 @@
 
     <section>
       <div class="two-columns">
-        <div class="contact-section">
-          <h2>Kontaktujte nás</h2>
-          <form id="contactForm">
-            <input type="text" placeholder="Meno" required>
-            <input type="email" placeholder="Email" required>
-            <textarea placeholder="Vaša správa" rows="4" required></textarea>
-            <button type="submit">Odoslať správu</button>
-          </form>
-        </div>
+      <div class="contact-section">
+  <h2>Kontaktujte nás</h2>
+  <form id="contactForm" action="https://formspree.io/f/your-form-id" method="POST">
+    <input type="text" name="name" placeholder="Meno" required>
+    <input type="email" name="email" placeholder="Email" required>
+    <textarea name="message" placeholder="Vaša správa" rows="4" required></textarea>
+    <button type="submit">Odoslať správu</button>
+  </form>
+</div>
 
         <div class="weather-container">
           <h2>Aktuálne počasie</h2>
