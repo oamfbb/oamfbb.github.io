@@ -283,6 +283,7 @@
     <ul>
       <li><a href="#home" class="active">Domov</a></li>
       <li><a href="#about">O nás</a></li>
+      <li><a href="https://www.edupage.org/" target="_blank">EduPage</a></li>
       <li><a href="#history">História</a></li>
       <li><a href="#applicants">Uchádzači</a></li>
       <li><a href="#study">Štúdium</a></li>
@@ -340,32 +341,32 @@
           <h2>Aktuálne počasie</h2>
           <div class="weather-grid">
             <div class="weather-card">
-              <img src="https://cdn.weatherapi.com/weather/64x64/day/113.png" class="weather-icon" alt="Teplota">
+              <img src="https://cdn-icons-png.flaticon.com/512/3208/3208676.png" class="weather-icon" alt="Teplota">
               <div class="weather-value" id="meteo-temp">-- °C</div>
               <div class="weather-label">Teplota</div>
             </div>
             <div class="weather-card">
-              <img src="https://cdn.weatherapi.com/weather/64x64/day/116.png" class="weather-icon" alt="Pocitová teplota">
+              <img src="https://cdn-icons-png.flaticon.com/512/4150/4150904.png" class="weather-icon" alt="Pocitová teplota">
               <div class="weather-value" id="meteo-feelslike">-- °C</div>
               <div class="weather-label">Pocitová</div>
             </div>
             <div class="weather-card">
-              <img src="https://cdn.weatherapi.com/weather/64x64/day/296.png" class="weather-icon" alt="Vlhkosť">
+              <img src="https://cdn-icons-png.flaticon.com/512/1584/1584895.png" class="weather-icon" alt="Vlhkosť">
               <div class="weather-value" id="meteo-humidity">-- %</div>
               <div class="weather-label">Vlhkosť</div>
             </div>
             <div class="weather-card">
-              <img src="https://cdn.weatherapi.com/weather/64x64/day/338.png" class="weather-icon" alt="Vietor">
+              <img src="https://cdn-icons-png.flaticon.com/512/172/172922.png" class="weather-icon" alt="Vietor">
               <div class="weather-value" id="meteo-wind">-- km/h</div>
               <div class="weather-label">Vietor</div>
             </div>
             <div class="weather-card">
-              <img src="https://cdn.weatherapi.com/weather/64x64/day/302.png" class="weather-icon" alt="Tlak">
+              <img src="https://cdn-icons-png.flaticon.com/512/2383/2383613.png" class="weather-icon" alt="Tlak">
               <div class="weather-value" id="meteo-pressure">-- hPa</div>
               <div class="weather-label">Tlak</div>
             </div>
             <div class="weather-card">
-              <img src="https://cdn.weatherapi.com/weather/64x64/day/308.png" class="weather-icon" alt="Zrážky">
+              <img src="https://cdn-icons-png.flaticon.com/512/4150/4150897.png" class="weather-icon" alt="Zrážky">
               <div class="weather-value" id="meteo-rain">-- mm</div>
               <div class="weather-label">Zrážky</div>
             </div>
@@ -380,7 +381,7 @@
 
     <footer>
       <p>© 2024 Obchodná akadémia Mareka Frauwirtha | Vytvorené s ❤️ študentmi školy</p>
-      <p>Adresa: Námestie SNP 1, 974 01 Banská Bystrica | Tel.: +421 48 414 51 11</p>
+      <p>Adresa: Tajovského 25, 974 01 Banská Bystrica | Tel.: +421 48 414 51 11</p>
     </footer>
   </div>
 
@@ -417,12 +418,15 @@
     // PÔVODNÉ FUNKCIE
     document.querySelectorAll('nav a').forEach(link => {
       link.addEventListener('click', function(e) {
-        e.preventDefault();
-        document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
-        this.classList.add('active');
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-          behavior: 'smooth'
-        });
+        // Nezastavujeme default pre EduPage odkaz
+        if (!this.getAttribute('href').startsWith('http')) {
+          e.preventDefault();
+          document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+          this.classList.add('active');
+          document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+          });
+        }
       });
     });
 
