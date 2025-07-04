@@ -105,18 +105,19 @@
       text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
     }
 
+    /* ÚPRAVENÝ BANNER - HLAVNÁ ZMENA */
     .banner {
       width: 100%;
-      max-height: 400px;
+      height: 500px; /* Zvýšená výška pre lepšie zobrazenie budovy */
       overflow: hidden;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      position: relative;
     }
 
     .banner img {
       width: 100%;
-      height: auto;
-      display: block;
+      height: 100%;
       object-fit: cover;
+      object-position: center 35%; /* Kľúčový parameter - posun obrázka hore */
     }
 
     section {
@@ -229,6 +230,10 @@
         margin-bottom: 1rem;
       }
       
+      .banner {
+        height: 350px; /* Menšia výška na mobiloch */
+      }
+      
       .highlights {
         grid-template-columns: 1fr;
       }
@@ -256,8 +261,9 @@
       <h1>Obchodná akadémia Mareka Frauwirtha<br>Banská Bystrica</h1>
     </header>
 
+    <!-- UPRAVENÝ BANNER S CENTROVANOU BUDOVOU -->
     <div class="banner">
-      <img src="baner.JPG" alt="Banner školy - Študenti v učebni" />
+      <img src="baner.JPG" alt="Budova Obchodnej akadémie Mareka Frauwirtha" />
     </div>
 
     <section id="about">
