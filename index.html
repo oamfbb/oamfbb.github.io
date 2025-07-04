@@ -146,12 +146,10 @@
       margin-bottom: 1rem;
     }
 
-    /* Štýly pre študijný odbor */
     .study-program {
       border-left: 4px solid var(--orange);
     }
 
-    /* Dvojstĺpcová sekcia */
     .two-columns {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -159,7 +157,6 @@
       margin: 2rem 0;
     }
 
-    /* Štýly pre meteowidget */
     .weather-container {
       background: white;
       border-radius: 8px;
@@ -177,23 +174,24 @@
 
     .weather-card {
       text-align: center;
+      padding: 0.5rem;
     }
 
     .weather-value {
-      font-size: 1.8rem;
+      font-size: 1.5rem;
       font-weight: bold;
       color: var(--orange);
     }
 
     .weather-label {
       color: var(--blue-dark);
-      font-size: 0.9rem;
+      font-size: 0.8rem;
     }
 
     .weather-icon {
       width: 50px;
       height: 50px;
-      margin: 0 auto;
+      margin: 0 auto 0.5rem;
     }
 
     .weather-update {
@@ -203,7 +201,6 @@
       margin-top: 1rem;
     }
 
-    /* Kontaktný formulár */
     .contact-section form {
       display: flex;
       flex-direction: column;
@@ -242,7 +239,6 @@
       margin-top: auto;
     }
 
-    /* Responzívne štýly */
     @media (max-width: 768px) {
       body {
         flex-direction: column;
@@ -340,21 +336,37 @@
         </div>
 
         <div class="weather-container">
-          <h2>Aktuálne počasie v škole</h2>
+          <h2>Aktuálne počasie</h2>
           <div class="weather-grid">
             <div class="weather-card">
               <img id="weather-icon" src="https://cdn.weatherapi.com/weather/64x64/day/113.png" class="weather-icon" alt="Počasie">
               <div class="weather-value" id="meteo-temp">-- °C</div>
-              <div class="weather-label">Aktuálna teplota</div>
+              <div class="weather-label">Teplota</div>
             </div>
             <div class="weather-card">
               <div class="weather-value" id="meteo-feelslike">-- °C</div>
-              <div class="weather-label">Pocitová teplota</div>
+              <div class="weather-label">Pocitová</div>
+            </div>
+            <div class="weather-card">
+              <div class="weather-value" id="meteo-humidity">-- %</div>
+              <div class="weather-label">Vlhkosť</div>
+            </div>
+            <div class="weather-card">
+              <div class="weather-value" id="meteo-wind">-- km/h</div>
+              <div class="weather-label">Vietor</div>
+            </div>
+            <div class="weather-card">
+              <div class="weather-value" id="meteo-pressure">-- hPa</div>
+              <div class="weather-label">Tlak</div>
+            </div>
+            <div class="weather-card">
+              <div class="weather-value" id="meteo-rain">-- mm</div>
+              <div class="weather-label">Zrážky</div>
             </div>
           </div>
           <p class="weather-update">
             Dáta poskytuje WeatherAPI.com | 
-            Naposledy aktualizované: <span id="update-time">--:--</span>
+            Aktualizované: <span id="update-time">--:--</span>
           </p>
         </div>
       </div>
@@ -380,10 +392,19 @@
         
         document.getElementById('meteo-temp').textContent = data.current.temp_c;
         document.getElementById('meteo-feelslike').textContent = data.current.feelslike_c;
+        document.getElementById('meteo-humidity').textContent = data.current.humidity;
+        document.getElementById('meteo-wind').textContent = data.current.wind_kph;
+        document.getElementById('meteo-pressure').textContent = data.current.pressure_mb;
+        document.getElementById('meteo-rain').textContent = data.current.precip_mm;
         document.getElementById('weather-icon').src = `https:${data.current.condition.icon}`;
         document.getElementById('update-time').textContent = new Date().toLocaleTimeString('sk-SK');
       } catch (error) {
         console.error("Chyba pri načítaní dát:", error);
+        document.querySelector('.weather-container').innerHTML += `
+          <p style="color: red; text-align: center;">
+            Počasie sa nepodarilo načítať. Skúste neskôr.
+          </p>
+        `;
       }
     }
 
