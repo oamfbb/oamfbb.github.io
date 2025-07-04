@@ -23,7 +23,6 @@
       min-height: 100vh;
     }
 
-    /* Left menu */
     nav {
       width: var(--menu-width);
       background-color: var(--blue-dark);
@@ -56,7 +55,6 @@
       background-color: var(--blue-light);
     }
 
-    /* Content area */
     .main {
       flex: 1;
       display: flex;
@@ -87,56 +85,25 @@
       line-height: 1.2;
     }
 
+    .banner {
+      width: 100%;
+      max-height: 400px;
+      overflow: hidden;
+    }
+
+    .banner img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+
     section {
       padding: 2rem;
-    }
-
-    .video-container {
-      position: relative;
-      width: 100%;
-      padding-bottom: 56.25%; /* 16:9 */
-      height: 0;
-      overflow: hidden;
-      border-radius: 12px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-
-    .video-container iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border: none;
     }
   </style>
 </head>
 <body>
   <nav>
     <ul>
-      <li><a href="#">Domov</a></li>
-      <li><a href="#">O nás</a></li>
-      <li><a href="#">História</a></li>
-      <li><a href="#">Uchádzači</a></li>
-      <li><a href="#">Štúdium</a></li>
-      <li><a href="#">Maturita</a></li>
-      <li><a href="#">Projekty</a></li>
-      <li><a href="#">Dokumentácia</a></li>
-      <li><a href="#">Kontakt</a></li>
-    </ul>
-  </nav>
-
-  <div class="main">
-    <header>
-      <img src="oa.png" alt="Logo školy" />
-      <h1>Obchodná akadémia Mareka Frauwirtha Banská Bystrica</h1>
-    </header>
-
-    <section>
-      <div class="video-container">
-        <iframe src="https://www.youtube.com/embed/4AsE1m4rVSc" allowfullscreen></iframe>
-      </div>
-    </section>
-  </div>
-</body>
-</html>
+      <li><a href="#">Dom
