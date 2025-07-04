@@ -29,102 +29,368 @@
       line-height: 1.6;
     }
 
-    /* ... (VŠETKY VAŠE PÔVODNÉ ŠTÝLY ZOSTÁVAJÚ ROVNAKÉ) ... */
-
-    /* NOVÉ ŠTÝLY PRE METEO WIDGET */
-    .meteo-container {
-      background: white;
-      border-radius: 12px;
-      padding: 1.5rem;
-      margin: 2rem auto;
-      max-width: 800px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      text-align: center;
+    nav {
+      width: var(--menu-width);
+      background-color: var(--blue-dark);
+      padding: 2rem 1rem;
+      box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      height: 100vh;
     }
 
-    .meteo-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 1.5rem;
-      margin: 1.5rem 0;
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
     }
 
-    .meteo-card {
-      background: #f8fafc;
-      border-radius: 10px;
-      padding: 1.2rem;
+    nav li {
+      margin-bottom: 1rem;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1rem;
+      display: block;
+      padding: 0.5rem;
+      border-radius: 4px;
       transition: all 0.3s;
     }
 
-    .meteo-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    nav a:hover {
+      background-color: var(--blue-light);
+      transform: translateX(5px);
     }
 
-    .meteo-value {
+    nav a.active {
+      background-color: var(--orange);
+      font-weight: bold;
+    }
+
+    .main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background: linear-gradient(90deg, var(--blue-dark), var(--green), var(--orange));
+      color: white;
+      display: flex;
+      align-items: center;
+      padding: 1.5rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    header img {
+      height: 80px;
+      width: 80px;
+      border-radius: 50%;
+      margin-right: 1.5rem;
+      object-fit: contain;
+      background: white;
+      padding: 0.3rem;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    header h1 {
+      font-size: 2rem;
+      margin: 0;
+      line-height: 1.2;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    }
+
+    .banner {
+      width: 100%;
+      height: 500px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .banner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 35%;
+    }
+
+    section {
+      padding: 2rem;
+      animation: fadeIn 1s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .highlights {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .card {
+      background: white;
+      border-radius: 8px;
+      padding: 1.5rem;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card h3 {
+      color: var(--blue-dark);
+      margin-top: 0;
+    }
+
+    /* NOVÉ ŠTÝLY PRE METEO WIDGET */
+    .weather-container {
+      background: white;
+      border-radius: 10px;
+      padding: 2rem;
+      margin: 3rem auto;
+      max-width: 900px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .weather-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .weather-card {
+      background: #f8fafc;
+      border-radius: 8px;
+      padding: 1.5rem;
+      text-align: center;
+      transition: all 0.3s;
+    }
+
+    .weather-card:hover {
+      background: #f0f7ff;
+      transform: translateY(-3px);
+    }
+
+    .weather-value {
       font-size: 1.8rem;
       font-weight: bold;
       color: var(--orange);
-      margin: 0.3rem 0;
     }
 
-    .meteo-label {
+    .weather-label {
       color: var(--blue-dark);
       font-size: 0.9rem;
     }
 
-    .meteo-icon {
-      width: 50px;
-      height: 50px;
+    .weather-icon {
+      width: 64px;
+      height: 64px;
       margin: 0 auto;
-      display: block;
     }
 
-    .meteo-update {
+    .weather-update {
+      text-align: center;
       color: #666;
       font-size: 0.8rem;
-      margin-top: 1rem;
+      margin-top: 1.5rem;
     }
 
+    form {
+      max-width: 600px;
+      margin: 2rem auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    form h2 {
+      margin-top: 0;
+      color: var(--blue-dark);
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 0.8rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-family: inherit;
+    }
+
+    button {
+      background-color: var(--orange);
+      color: white;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: var(--blue-dark);
+    }
+
+    footer {
+      background-color: var(--blue-dark);
+      color: white;
+      text-align: center;
+      padding: 1.5rem;
+      margin-top: auto;
+    }
+
+    /* Responzívne štýly */
     @media (max-width: 768px) {
-      .meteo-grid {
+      body {
+        flex-direction: column;
+      }
+      
+      nav {
+        width: 100%;
+        height: auto;
+        padding: 1rem;
+        position: relative;
+      }
+      
+      nav ul {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+      
+      header {
+        flex-direction: column;
+        text-align: center;
+        padding: 1rem;
+      }
+      
+      header img {
+        margin-right: 0;
+        margin-bottom: 1rem;
+      }
+      
+      .banner {
+        height: 350px;
+      }
+      
+      .highlights {
+        grid-template-columns: 1fr;
+      }
+
+      .weather-grid {
         grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .weather-grid {
+        grid-template-columns: 1fr;
       }
     }
   </style>
 </head>
 <body>
-  <!-- ... (VŠETOK VÁŠ PÔVODNÝ HTML KÓD ZOSTÁVA ROVNAKÝ) ... -->
+  <nav>
+    <ul>
+      <li><a href="#home" class="active">Domov</a></li>
+      <li><a href="#about">O nás</a></li>
+      <li><a href="#history">História</a></li>
+      <li><a href="#applicants">Uchádzači</a></li>
+      <li><a href="#study">Štúdium</a></li>
+      <li><a href="#maturita">Maturita</a></li>
+      <li><a href="#projects">Projekty</a></li>
+      <li><a href="#docs">Dokumentácia</a></li>
+      <li><a href="#contact">Kontakt</a></li>
+    </ul>
+  </nav>
 
-  <!-- METEO WIDGET SEKCIA -->
-  <section class="meteo-container">
-    <h2>Aktuálne počasie v škole</h2>
-    <div class="meteo-grid">
-      <div class="meteo-card">
-        <img id="weather-icon" src="https://cdn.weatherapi.com/weather/64x64/day/113.png" class="meteo-icon" alt="Počasie">
-        <div class="meteo-value" id="meteo-temp">-- °C</div>
-        <div class="meteo-label">Aktuálna teplota</div>
-      </div>
-      <div class="meteo-card">
-        <div class="meteo-value" id="meteo-feelslike">-- °C</div>
-        <div class="meteo-label">Pocitová teplota</div>
-      </div>
-      <div class="meteo-card">
-        <div class="meteo-value" id="meteo-humidity">-- %</div>
-        <div class="meteo-label">Vlhkosť</div>
-      </div>
-      <div class="meteo-card">
-        <div class="meteo-value" id="meteo-wind">-- km/h</div>
-        <div class="meteo-label">Vietor</div>
-      </div>
+  <div class="main">
+    <header id="home">
+      <img src="oa.png" alt="Logo školy" />
+      <h1>Obchodná akadémia Mareka Frauwirtha<br>Banská Bystrica</h1>
+    </header>
+
+    <div class="banner">
+      <img src="baner.JPG" alt="Budova Obchodnej akadémie Mareka Frauwirtha" />
     </div>
-    <p class="meteo-update">
-      Dáta poskytuje WeatherAPI.com | 
-      Naposledy aktualizované: <span id="update-time">--:--</span>
-    </p>
-  </section>
 
-  <!-- ... (ZVYŠOK VÁŠHO PÔVODNÉHO HTML) ... -->
+    <section id="about">
+      <h2>Vitajte na našej škole</h2>
+      <p>Obchodná akadémia Mareka Frauwirtha v Banskej Bystrici poskytuje kvalitné obchodné a ekonomické vzdelávanie už viac ako 100 rokov. Sme moderná škola s bohatou históriou, ktorá pripravuje študentov na úspešnú kariéru v oblasti obchodu, financií a podnikania.</p>
+      
+      <div class="highlights">
+        <div class="card">
+          <h3>Učebné programy</h3>
+          <p>Ponúkame študijné odbory: Medzinárodný obchod, Ekonomika a podnikanie, Bankovníctvo a poistenie, Cestovný ruch a ubytovanie.</p>
+        </div>
+        <div class="card">
+          <h3>Moderné zázemie</h3>
+          <p>Škola disponuje počítačovými učebňami, jazykovými laboratóriami, študovňami a športovým areálom. Všetky učebne sú vybavené modernou technikou.</p>
+        </div>
+        <div class="card">
+          <h3>Medzinárodná spolupráca</h3>
+          <p>Účastníme sa programov Erasmus+ a máme partnerské školy v Nemecku, Rakúsku a Poľsku. Študenti majú možnosť zahraničných stáží.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- METEO WIDGET -->
+    <section class="weather-container">
+      <h2>Aktuálne počasie v škole</h2>
+      <div class="weather-grid">
+        <div class="weather-card">
+          <img id="weather-icon" src="https://cdn.weatherapi.com/weather/64x64/day/113.png" class="weather-icon" alt="Počasie">
+          <div class="weather-value" id="meteo-temp">-- °C</div>
+          <div class="weather-label">Aktuálna teplota</div>
+        </div>
+        <div class="weather-card">
+          <div class="weather-value" id="meteo-feelslike">-- °C</div>
+          <div class="weather-label">Pocitová teplota</div>
+        </div>
+        <div class="weather-card">
+          <div class="weather-value" id="meteo-humidity">-- %</div>
+          <div class="weather-label">Vlhkosť</div>
+        </div>
+        <div class="weather-card">
+          <div class="weather-value" id="meteo-wind">-- km/h</div>
+          <div class="weather-label">Vietor</div>
+        </div>
+      </div>
+      <p class="weather-update">
+        Dáta poskytuje WeatherAPI.com | 
+        Naposledy aktualizované: <span id="update-time">--:--</span>
+      </p>
+    </section>
+
+    <section id="contact">
+      <form id="contactForm">
+        <h2>Kontaktujte nás</h2>
+        <input type="text" placeholder="Meno" required>
+        <input type="email" placeholder="Email" required>
+        <textarea placeholder="Vaša správa" rows="4" required></textarea>
+        <button type="submit">Odoslať správu</button>
+      </form>
+    </section>
+
+    <footer>
+      <p>© 2024 Obchodná akadémia Mareka Frauwirtha | Vytvorené s ❤️ študentmi školy</p>
+      <p>Adresa: Námestie SNP 1, 974 01 Banská Bystrica | Tel.: +421 48 414 51 11</p>
+    </footer>
+  </div>
 
   <script>
     // METEO API KONFIGURÁCIA
@@ -151,7 +417,7 @@
         
       } catch (chyba) {
         console.error("Chyba pri načítaní dát:", chyba);
-        document.querySelector('.meteo-container').innerHTML += `
+        document.querySelector('.weather-container').innerHTML += `
           <p style="color: red; text-align: center;">
             Počasie sa nepodarilo načítať. Skúste neskôr.
           </p>
@@ -159,13 +425,35 @@
       }
     }
 
-    // Spustiť po načítaní stránky
-    window.addEventListener('DOMContentLoaded', nacitajPocasie);
-    
-    // Obnovovať dáta každých 30 minút
-    setInterval(nacitajPocasie, 1800000);
+    // PÔVODNÝ JAVASCRIPT PRE VAŠU STRÁNKU
+    document.querySelectorAll('nav a').forEach(link => {
+      link.addEventListener('click', function() {
+        document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+        this.classList.add('active');
+      });
+    });
 
-    // ... (VÁŠ PÔVODNÝ JAVASCRIPT ZOSTÁVA ROVNAKÝ) ...
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Ďakujeme za správu! Ozveme sa vám čoskoro.');
+      this.reset();
+    });
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    // Načítaj dáta pri načítaní stránky
+    window.addEventListener('DOMContentLoaded', () => {
+      nacitajPocasie();
+      // Obnovuj dáta každých 30 minút
+      setInterval(nacitajPocasie, 1800000);
+    });
   </script>
 </body>
 </html>
