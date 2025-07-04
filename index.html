@@ -177,6 +177,13 @@
       padding: 0.5rem;
     }
 
+    .weather-card img {
+      width: 40px;
+      height: 40px;
+      margin-bottom: 0.5rem;
+      filter: drop-shadow(0 2px 2px rgba(0,0,0,0.2));
+    }
+
     .weather-value {
       font-size: 1.5rem;
       font-weight: bold;
@@ -186,12 +193,6 @@
     .weather-label {
       color: var(--blue-dark);
       font-size: 0.8rem;
-    }
-
-    .weather-icon {
-      width: 50px;
-      height: 50px;
-      margin: 0 auto 0.5rem;
     }
 
     .weather-update {
@@ -339,27 +340,32 @@
           <h2>Aktuálne počasie</h2>
           <div class="weather-grid">
             <div class="weather-card">
-              <img id="weather-icon" src="https://cdn.weatherapi.com/weather/64x64/day/113.png" class="weather-icon" alt="Počasie">
+              <img src="https://cdn.weatherapi.com/weather/64x64/day/113.png" class="weather-icon" alt="Teplota">
               <div class="weather-value" id="meteo-temp">-- °C</div>
               <div class="weather-label">Teplota</div>
             </div>
             <div class="weather-card">
+              <img src="https://cdn.weatherapi.com/weather/64x64/day/116.png" class="weather-icon" alt="Pocitová teplota">
               <div class="weather-value" id="meteo-feelslike">-- °C</div>
               <div class="weather-label">Pocitová</div>
             </div>
             <div class="weather-card">
+              <img src="https://cdn.weatherapi.com/weather/64x64/day/296.png" class="weather-icon" alt="Vlhkosť">
               <div class="weather-value" id="meteo-humidity">-- %</div>
               <div class="weather-label">Vlhkosť</div>
             </div>
             <div class="weather-card">
+              <img src="https://cdn.weatherapi.com/weather/64x64/day/338.png" class="weather-icon" alt="Vietor">
               <div class="weather-value" id="meteo-wind">-- km/h</div>
               <div class="weather-label">Vietor</div>
             </div>
             <div class="weather-card">
+              <img src="https://cdn.weatherapi.com/weather/64x64/day/302.png" class="weather-icon" alt="Tlak">
               <div class="weather-value" id="meteo-pressure">-- hPa</div>
               <div class="weather-label">Tlak</div>
             </div>
             <div class="weather-card">
+              <img src="https://cdn.weatherapi.com/weather/64x64/day/308.png" class="weather-icon" alt="Zrážky">
               <div class="weather-value" id="meteo-rain">-- mm</div>
               <div class="weather-label">Zrážky</div>
             </div>
@@ -390,13 +396,13 @@
         );
         const data = await response.json();
         
-        document.getElementById('meteo-temp').textContent = data.current.temp_c;
-        document.getElementById('meteo-feelslike').textContent = data.current.feelslike_c;
-        document.getElementById('meteo-humidity').textContent = data.current.humidity;
-        document.getElementById('meteo-wind').textContent = data.current.wind_kph;
-        document.getElementById('meteo-pressure').textContent = data.current.pressure_mb;
-        document.getElementById('meteo-rain').textContent = data.current.precip_mm;
-        document.getElementById('weather-icon').src = `https:${data.current.condition.icon}`;
+        // Aktualizácia údajov s jednotkami
+        document.getElementById('meteo-temp').textContent = `${data.current.temp_c} °C`;
+        document.getElementById('meteo-feelslike').textContent = `${data.current.feelslike_c} °C`;
+        document.getElementById('meteo-humidity').textContent = `${data.current.humidity} %`;
+        document.getElementById('meteo-wind').textContent = `${data.current.wind_kph} km/h`;
+        document.getElementById('meteo-pressure').textContent = `${data.current.pressure_mb} hPa`;
+        document.getElementById('meteo-rain').textContent = `${data.current.precip_mm} mm`;
         document.getElementById('update-time').textContent = new Date().toLocaleTimeString('sk-SK');
       } catch (error) {
         console.error("Chyba pri načítaní dát:", error);
