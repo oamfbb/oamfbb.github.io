@@ -1,126 +1,171 @@
-<!-- VLOŽTE TOTO KAMKOĽVEK DO VAŠEHO HTML (najlepšie pred sekciou kontakt) -->
-<section id="meteo" class="weather-container">
-  <h2>Aktuálne počasie v škole</h2>
-  <div class="weather-grid">
-    <div class="weather-card">
-      <img src="https://cdn.weatherapi.com/weather/64x64/day/113.png" id="weather-icon" alt="Ikona počasia">
-      <div class="weather-value" id="temp">-- °C</div>
-      <div class="weather-label">Aktuálna teplota</div>
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Obchodná akadémia Mareka Frauwirtha</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <style>
+    :root {
+      --blue-dark: #005c8a;
+      --blue-light: #00a3e0;
+      --green: #7bb241;
+      --orange: #f7941d;
+      --text-color: #1a1a1a;
+      --menu-width: 220px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f7f9fa;
+      color: var(--text-color);
+      display: flex;
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    /* ... (VŠETKY VAŠE PÔVODNÉ ŠTÝLY ZOSTÁVAJÚ ROVNAKÉ) ... */
+
+    /* NOVÉ ŠTÝLY PRE METEO WIDGET */
+    .meteo-container {
+      background: white;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 2rem auto;
+      max-width: 800px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .meteo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1.5rem;
+      margin: 1.5rem 0;
+    }
+
+    .meteo-card {
+      background: #f8fafc;
+      border-radius: 10px;
+      padding: 1.2rem;
+      transition: all 0.3s;
+    }
+
+    .meteo-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .meteo-value {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: var(--orange);
+      margin: 0.3rem 0;
+    }
+
+    .meteo-label {
+      color: var(--blue-dark);
+      font-size: 0.9rem;
+    }
+
+    .meteo-icon {
+      width: 50px;
+      height: 50px;
+      margin: 0 auto;
+      display: block;
+    }
+
+    .meteo-update {
+      color: #666;
+      font-size: 0.8rem;
+      margin-top: 1rem;
+    }
+
+    @media (max-width: 768px) {
+      .meteo-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- ... (VŠETOK VÁŠ PÔVODNÝ HTML KÓD ZOSTÁVA ROVNAKÝ) ... -->
+
+  <!-- METEO WIDGET SEKCIA -->
+  <section class="meteo-container">
+    <h2>Aktuálne počasie v škole</h2>
+    <div class="meteo-grid">
+      <div class="meteo-card">
+        <img id="weather-icon" src="https://cdn.weatherapi.com/weather/64x64/day/113.png" class="meteo-icon" alt="Počasie">
+        <div class="meteo-value" id="meteo-temp">-- °C</div>
+        <div class="meteo-label">Aktuálna teplota</div>
+      </div>
+      <div class="meteo-card">
+        <div class="meteo-value" id="meteo-feelslike">-- °C</div>
+        <div class="meteo-label">Pocitová teplota</div>
+      </div>
+      <div class="meteo-card">
+        <div class="meteo-value" id="meteo-humidity">-- %</div>
+        <div class="meteo-label">Vlhkosť</div>
+      </div>
+      <div class="meteo-card">
+        <div class="meteo-value" id="meteo-wind">-- km/h</div>
+        <div class="meteo-label">Vietor</div>
+      </div>
     </div>
-    <div class="weather-card">
-      <div class="weather-value" id="feelslike">-- °C</div>
-      <div class="weather-label">Pocitová teplota</div>
-    </div>
-    <div class="weather-card">
-      <div class="weather-value" id="humidity">-- %</div>
-      <div class="weather-label">Vlhkosť</div>
-    </div>
-    <div class="weather-card">
-      <div class="weather-value" id="wind">-- km/h</div>
-      <div class="weather-label">Rýchlosť vetra</div>
-    </div>
-  </div>
-  <p class="weather-update">Naposledy aktualizované: <span id="update-time">--</span></p>
-</section>
+    <p class="meteo-update">
+      Dáta poskytuje WeatherAPI.com | 
+      Naposledy aktualizované: <span id="update-time">--:--</span>
+    </p>
+  </section>
 
-<style>
-/* ŠTÝLY PRE WEATHERAPI WIDGET */
-.weather-container {
-  background: white;
-  border-radius: 12px;
-  padding: 2rem;
-  margin: 3rem auto;
-  max-width: 900px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
+  <!-- ... (ZVYŠOK VÁŠHO PÔVODNÉHO HTML) ... -->
 
-.weather-container h2 {
-  color: var(--blue-dark);
-  text-align: center;
-  margin-top: 0;
-  font-size: 1.8rem;
-}
+  <script>
+    // METEO API KONFIGURÁCIA
+    const API_KEY = '3fb2e3f2ab5e4c9596771033250407';
+    const LOCATION = 'Banska Bystrica';
 
-.weather-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1.5rem;
-  margin-top: 1.5rem;
-}
+    async function nacitajPocasie() {
+      try {
+        const odpoved = await fetch(
+          `https://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${LOCATION}&lang=sk`
+        );
+        const data = await odpoved.json();
+        
+        // Aktualizácia údajov
+        document.getElementById('meteo-temp').textContent = `${data.current.temp_c} °C`;
+        document.getElementById('meteo-feelslike').textContent = `${data.current.feelslike_c} °C`;
+        document.getElementById('meteo-humidity').textContent = `${data.current.humidity} %`;
+        document.getElementById('meteo-wind').textContent = `${data.current.wind_kph} km/h`;
+        document.getElementById('weather-icon').src = `https:${data.current.condition.icon}`;
+        
+        // Aktualizácia času
+        const now = new Date();
+        document.getElementById('update-time').textContent = now.toLocaleTimeString('sk-SK');
+        
+      } catch (chyba) {
+        console.error("Chyba pri načítaní dát:", chyba);
+        document.querySelector('.meteo-container').innerHTML += `
+          <p style="color: red; text-align: center;">
+            Počasie sa nepodarilo načítať. Skúste neskôr.
+          </p>
+        `;
+      }
+    }
 
-.weather-card {
-  background: #f8fafc;
-  border-radius: 10px;
-  padding: 1.5rem;
-  text-align: center;
-  transition: transform 0.3s;
-}
-
-.weather-card:hover {
-  transform: translateY(-5px);
-  background: #f0f7ff;
-}
-
-.weather-value {
-  font-size: 1.8rem;
-  font-weight: bold;
-  color: var(--orange);
-  margin: 0.5rem 0;
-}
-
-.weather-label {
-  color: var(--blue-dark);
-  font-size: 0.9rem;
-}
-
-.weather-update {
-  text-align: center;
-  color: #666;
-  font-size: 0.8rem;
-  margin-top: 1.5rem;
-}
-
-#weather-icon {
-  height: 50px;
-  width: 50px;
-  margin-bottom: 0.5rem;
-}
-</style>
-
-<script>
-// KONFIGURÁCIA - ZADAJTE VÁŠ API KĽÚČ A MESTO
-const API_KEY = 'VAS_API_KLUC'; // Nahraďte vaším kľúčom
-const LOCATION = 'Banska Bystrica'; // Alebo presné ID vašej stanice
-
-// Funkcia na načítanie počasia
-async function loadWeather() {
-  try {
-    const response = await fetch(
-      `https://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${LOCATION}&lang=sk`
-    );
-    const data = await response.json();
+    // Spustiť po načítaní stránky
+    window.addEventListener('DOMContentLoaded', nacitajPocasie);
     
-    // Aktualizácia údajov
-    document.getElementById('temp').textContent = `${data.current.temp_c} °C`;
-    document.getElementById('feelslike').textContent = `${data.current.feelslike_c} °C`;
-    document.getElementById('humidity').textContent = `${data.current.humidity} %`;
-    document.getElementById('wind').textContent = `${data.current.wind_kph} km/h`;
-    document.getElementById('weather-icon').src = `https:${data.current.condition.icon}`;
-    
-    // Aktualizácia času
-    const now = new Date();
-    document.getElementById('update-time').textContent = now.toLocaleTimeString('sk-SK');
-    
-  } catch (error) {
-    console.error('Chyba pri načítaní dát:', error);
-    document.getElementById('temp').textContent = "Chyba dát";
-  }
-}
+    // Obnovovať dáta každých 30 minút
+    setInterval(nacitajPocasie, 1800000);
 
-// Načítajte počasie pri načítaní stránky
-window.addEventListener('DOMContentLoaded', () => {
-  loadWeather();
-  // Nastavte interval obnovovania (každých 10 minút)
-  setInterval(loadWeather, 600000);
-});
-</script>
+    // ... (VÁŠ PÔVODNÝ JAVASCRIPT ZOSTÁVA ROVNAKÝ) ...
+  </script>
+</body>
+</html>
