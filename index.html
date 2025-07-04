@@ -330,12 +330,36 @@
       <div class="contact-section">
   <h2>Kontaktujte nás</h2>
   <form id="contactForm" action="https://formspree.io/f/xkgbawok" method="POST">
-    <input type="text" name="name" placeholder="Meno" required>
-    <input type="email" name="email" placeholder="Email" required>
-    <textarea name="message" placeholder="Vaša správa" rows="4" required></textarea>
+    <!-- Pridané label pre lepšiu prístupnosť -->
+    <label for="name" class="sr-only">Meno</label>
+    <input type="text" id="name" name="name" placeholder="Meno" required>
+    
+    <label for="email" class="sr-only">Email</label>
+    <input type="email" id="email" name="email" placeholder="Email" required>
+    
+    <label for="message" class="sr-only">Správa</label>
+    <textarea id="message" name="message" placeholder="Vaša správa" rows="4" required></textarea>
+    
+    <input type="hidden" name="_subject" value="Nová správa z webu OA MF">
+    <input type="text" name="_gotcha" style="display:none"> <!-- Anti-spam -->
+    
     <button type="submit">Odoslať správu</button>
   </form>
 </div>
+
+<style>
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+</style>
 
         <div class="weather-container">
           <h2>Aktuálne počasie</h2>
