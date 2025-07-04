@@ -105,10 +105,9 @@
       text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
     }
 
-    /* ÚPRAVENÝ BANNER - HLAVNÁ ZMENA */
     .banner {
       width: 100%;
-      height: 500px; /* Zvýšená výška pre lepšie zobrazenie budovy */
+      height: 500px;
       overflow: hidden;
       position: relative;
     }
@@ -117,7 +116,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center 35%; /* Kľúčový parameter - posun obrázka hore */
+      object-position: center 35%;
     }
 
     section {
@@ -152,6 +151,30 @@
     .card h3 {
       color: var(--blue-dark);
       margin-top: 0;
+    }
+
+    /* Štýly pre meteowidget */
+    .weather-container {
+      background: white;
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin: 2rem auto;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      max-width: 900px;
+    }
+
+    .weather-container h2 {
+      color: var(--blue-dark);
+      margin-top: 0;
+      text-align: center;
+    }
+
+    .weather-iframe {
+      width: 100%;
+      height: 500px;
+      border: none;
+      border-radius: 6px;
+      margin-top: 1rem;
     }
 
     form {
@@ -231,11 +254,15 @@
       }
       
       .banner {
-        height: 350px; /* Menšia výška na mobiloch */
+        height: 350px;
       }
       
       .highlights {
         grid-template-columns: 1fr;
+      }
+
+      .weather-iframe {
+        height: 400px;
       }
     }
   </style>
@@ -261,7 +288,6 @@
       <h1>Obchodná akadémia Mareka Frauwirtha<br>Banská Bystrica</h1>
     </header>
 
-    <!-- UPRAVENÝ BANNER S CENTROVANOU BUDOVOU -->
     <div class="banner">
       <img src="baner.JPG" alt="Budova Obchodnej akadémie Mareka Frauwirtha" />
     </div>
@@ -284,6 +310,18 @@
           <p>Účastníme sa programov Erasmus+ a máme partnerské školy v Nemecku, Rakúsku a Poľsku. Študenti majú možnosť zahraničných stáží.</p>
         </div>
       </div>
+    </section>
+
+    <!-- Meteostanica sekcia -->
+    <section class="weather-container">
+      <h2>Aktuálne počasie v škole</h2>
+      <p style="text-align: center;">Dáta z meteostanice IBANSK55 (Wunderground)</p>
+      <iframe 
+        src="https://www.wunderground.com/dashboard/pws/IBANSK55" 
+        class="weather-iframe"
+        loading="lazy"
+        title="Meteostanica Obchodnej akadémie">
+      </iframe>
     </section>
 
     <section id="contact">
