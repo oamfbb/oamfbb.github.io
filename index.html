@@ -73,6 +73,7 @@
       flex: 1;
       display: flex;
       flex-direction: column;
+      width: calc(100% - var(--menu-width));
     }
 
     header {
@@ -178,8 +179,8 @@
     }
 
     .weather-card img {
-      width: 40px;
-      height: 40px;
+      width: 48px;
+      height: 48px;
       margin-bottom: 0.5rem;
       filter: drop-shadow(0 2px 2px rgba(0,0,0,0.2));
     }
@@ -256,6 +257,10 @@
         display: flex;
         flex-wrap: wrap;
         gap: 0.5rem;
+      }
+
+      .main {
+        width: 100%;
       }
 
       header {
@@ -337,45 +342,43 @@
           </form>
         </div>
 
-     <div class="weather-container">
-  <h2>Aktuálne počasie</h2>
-  <div class="weather-grid">
-    <div class="weather-card">
-      <img src="https://cdn-icons-png.flaticon.com/512/869/869869.png" class="weather-icon" alt="Teplota">
-      <div class="weather-value" id="meteo-temp">-- °C</div>
-      <div class="weather-label">Teplota</div>
-    </div>
-    <div class="weather-card">
-      <img src="https://cdn-icons-png.flaticon.com/512/3253/3253929.png" class="weather-icon" alt="Pocitová teplota">
-      <div class="weather-value" id="meteo-feelslike">-- °C</div>
-      <div class="weather-label">Pocitová</div>
-    </div>
-    <div class="weather-card">
-      <img src="https://cdn-icons-png.flaticon.com/512/2518/2518180.png" class="weather-icon" alt="Vlhkosť">
-      <div class="weather-value" id="meteo-humidity">-- %</div>
-      <div class="weather-label">Vlhkosť</div>
-    </div>
-    <div class="weather-card">
-      <img src="https://cdn-icons-png.flaticon.com/512/172/172922.png" class="weather-icon" alt="Vietor">
-      <div class="weather-value" id="meteo-wind">-- km/h</div>
-      <div class="weather-label">Vietor</div>
-    </div>
-    <div class="weather-card">
-      <img src="https://cdn-icons-png.flaticon.com/512/2776/2776155.png" class="weather-icon" alt="Tlak">
-      <div class="weather-value" id="meteo-pressure">-- hPa</div>
-      <div class="weather-label">Tlak</div>
-    </div>
-    <div class="weather-card">
-      <img src="https://cdn-icons-png.flaticon.com/512/4150/4150897.png" class="weather-icon" alt="Zrážky">
-      <div class="weather-value" id="meteo-rain">-- mm</div>
-      <div class="weather-label">Zrážky</div>
-    </div>
-  </div>
-  <p class="weather-update">
-    Dáta poskytuje WeatherAPI.com | 
-    Aktualizované: <span id="update-time">--:--</span>
-  </p>
-</div>
+        <div class="weather-container">
+          <h2>Aktuálne počasie</h2>
+          <div class="weather-grid">
+            <div class="weather-card">
+              <img src="https://cdn-icons-png.flaticon.com/512/3093/3093395.png" class="weather-icon" alt="Teplota">
+              <div class="weather-value" id="meteo-temp">-- °C</div>
+              <div class="weather-label">Teplota</div>
+            </div>
+            <div class="weather-card">
+              <img src="https://cdn-icons-png.flaticon.com/512/3253/3253929.png" class="weather-icon" alt="Pocitová teplota">
+              <div class="weather-value" id="meteo-feelslike">-- °C</div>
+              <div class="weather-label">Pocitová</div>
+            </div>
+            <div class="weather-card">
+              <img src="https://cdn-icons-png.flaticon.com/512/2518/2518180.png" class="weather-icon" alt="Vlhkosť">
+              <div class="weather-value" id="meteo-humidity">-- %</div>
+              <div class="weather-label">Vlhkosť</div>
+            </div>
+            <div class="weather-card">
+              <img src="https://cdn-icons-png.flaticon.com/512/172/172922.png" class="weather-icon" alt="Vietor">
+              <div class="weather-value" id="meteo-wind">-- km/h</div>
+              <div class="weather-label">Vietor</div>
+            </div>
+            <div class="weather-card">
+              <img src="https://cdn-icons-png.flaticon.com/512/2776/2776155.png" class="weather-icon" alt="Tlak">
+              <div class="weather-value" id="meteo-pressure">-- hPa</div>
+              <div class="weather-label">Tlak</div>
+            </div>
+            <div class="weather-card">
+              <img src="https://cdn-icons-png.flaticon.com/512/4150/4150897.png" class="weather-icon" alt="Zrážky">
+              <div class="weather-value" id="meteo-rain">-- mm</div>
+              <div class="weather-label">Zrážky</div>
+            </div>
+          </div>
+          <p class="weather-update">
+            Dáta poskytuje WeatherAPI.com | 
+            Aktualizované: <span id="update-time">--:--</span>
           </p>
         </div>
       </div>
@@ -420,7 +423,6 @@
     // PÔVODNÉ FUNKCIE
     document.querySelectorAll('nav a').forEach(link => {
       link.addEventListener('click', function(e) {
-        // Nezastavujeme default pre EduPage odkaz
         if (!this.getAttribute('href').startsWith('http')) {
           e.preventDefault();
           document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
