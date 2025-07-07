@@ -2,498 +2,306 @@
 <html lang="sk">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Obchodná akadémia Mareka Frauwirtha</title>
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Škola - Vitajte</title>
   <style>
-    :root {
-      --blue-dark: #005c8a;
-      --blue-light: #00a3e0;
-      --green: #7bb241;
-      --orange: #f7941d;
-      --text-color: #1a1a1a;
-      --menu-width: 220px;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #f7f9fa;
-      color: var(--text-color);
-      display: flex;
-      min-height: 100vh;
-      line-height: 1.6;
+      font-family: Arial, sans-serif;
+      margin: 0; padding: 0; background: #f7f7f7;
+      color: #333;
     }
-
-    nav {
-      width: var(--menu-width);
-      background-color: var(--blue-dark);
-      padding: 2rem 1rem;
-      box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-      position: sticky;
-      top: 0;
-      height: 100vh;
-    }
-
-    nav ul {
-      list-style: none;
-    }
-
-    nav li {
-      margin-bottom: 1rem;
-    }
-
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 1rem;
-      display: block;
-      padding: 0.5rem;
-      border-radius: 4px;
-      transition: all 0.3s;
-    }
-
-    nav a:hover {
-      background-color: var(--blue-light);
-      transform: translateX(5px);
-    }
-
-    nav a.active {
-      background-color: var(--orange);
-      font-weight: bold;
-    }
-
-    .main {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-    }
-
     header {
-      background: linear-gradient(90deg, var(--blue-dark), var(--green), var(--orange));
+      background: #004080;
       color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    main {
+      max-width: 1100px;
+      margin: 20px auto;
+      padding: 0 20px;
+    }
+    /* Sekcie */
+    .sections {
       display: flex;
-      align-items: center;
-      padding: 1.5rem 2rem;
-      position: sticky;
-      top: 0;
-      z-index: 10;
+      gap: 20px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
     }
-
-    header img {
-      height: 80px;
-      width: 80px;
-      border-radius: 50%;
-      margin-right: 1.5rem;
-      object-fit: contain;
+    .section {
       background: white;
-      padding: 0.3rem;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    }
-
-    header h1 {
-      font-size: 2rem;
-      margin: 0;
-      line-height: 1.2;
-      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
-    }
-
-    .banner {
-      width: 100%;
-      height: 400px;
-      overflow: hidden;
-    }
-
-    .banner img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-    }
-
-    section {
-      padding: 2rem;
-    }
-
-    .highlights {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      margin-top: 2rem;
-    }
-
-    .card {
-      background: white;
+      flex: 1 1 30%;
+      padding: 20px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.1);
       border-radius: 8px;
-      padding: 1.5rem;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s;
     }
-
-    .card:hover {
-      transform: translateY(-5px);
-    }
-
-    .card h3 {
-      color: var(--blue-dark);
+    .section h2 {
       margin-top: 0;
-      margin-bottom: 1rem;
+      color: #004080;
     }
-
-    .study-program {
-      border-left: 4px solid var(--orange);
+    /* Karty udalostí */
+    .events-container {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: space-between;
     }
-
-    .two-columns {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-      margin: 2rem 0;
-    }
-
-    .weather-container {
+    .event-card {
       background: white;
+      flex: 1 1 30%;
       border-radius: 8px;
-      padding: 1.5rem;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      height: 100%;
-    }
-
-    .weather-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-      gap: 1rem;
-      margin: 1rem 0;
-    }
-
-    .weather-card {
-      text-align: center;
-      padding: 0.5rem;
-    }
-
-    .weather-card img {
-      width: 48px;
-      height: 48px;
-      margin-bottom: 0.5rem;
-      filter: drop-shadow(0 2px 2px rgba(0,0,0,0.2));
-    }
-
-    .weather-value {
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: var(--orange);
-    }
-
-    .weather-label {
-      color: var(--blue-dark);
-      font-size: 0.8rem;
-    }
-
-    .weather-update {
-      color: #666;
-      font-size: 0.8rem;
-      text-align: center;
-      margin-top: 1rem;
-    }
-
-    .contact-section form {
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      cursor: pointer;
+      overflow: hidden;
       display: flex;
       flex-direction: column;
-      gap: 1rem;
+      transition: transform 0.2s ease;
+      min-width: 280px;
     }
-
-    .contact-section input,
-    .contact-section textarea {
+    .event-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    }
+    .event-image {
       width: 100%;
-      padding: 0.8rem;
-      border: 1px solid #ddd;
-      border-radius: 4px;
-      font-family: inherit;
+      height: 180px;
+      object-fit: cover;
     }
-
-    .contact-section button {
-      background-color: var(--orange);
-      color: white;
-      border: none;
-      padding: 0.8rem 1.5rem;
-      border-radius: 4px;
-      cursor: pointer;
+    .event-content {
+      padding: 15px;
+      flex-grow: 1;
+    }
+    .event-title {
       font-weight: bold;
-      transition: background 0.3s;
+      margin: 0 0 10px;
+      color: #004080;
     }
-
-    .contact-section button:hover {
-      background-color: var(--blue-dark);
+    .event-summary {
+      font-size: 0.9rem;
+      color: #555;
     }
-
-    footer {
-      background-color: var(--blue-dark);
-      color: white;
-      text-align: center;
-      padding: 1.5rem;
-      margin-top: auto;
+    /* Modálne okno */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0,0,0,0.6);
+      overflow-y: auto;
     }
-
-    @media (max-width: 768px) {
-      body {
-        flex-direction: column;
-      }
-
-      nav {
-        width: 100%;
-        height: auto;
-        padding: 1rem;
-        position: relative;
-      }
-
-      nav ul {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.5rem;
-      }
-
-      header {
-        flex-direction: column;
-        text-align: center;
-      }
-
-      header img {
-        margin-right: 0;
-        margin-bottom: 1rem;
-      }
-
-      .banner {
-        height: 300px;
-      }
-
-      .two-columns {
-        grid-template-columns: 1fr;
-      }
+    .modal-content {
+      background: white;
+      margin: 50px auto;
+      padding: 20px;
+      max-width: 700px;
+      border-radius: 10px;
+      position: relative;
     }
-
-    .sr-only {
+    .modal-close {
       position: absolute;
-      width: 1px;
-      height: 1px;
-      padding: 0;
-      margin: -1px;
-      overflow: hidden;
-      clip: rect(0, 0, 0, 0);
-      white-space: nowrap;
-      border-width: 0;
+      top: 15px;
+      right: 15px;
+      font-size: 24px;
+      font-weight: bold;
+      color: #aaa;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+    .modal-close:hover {
+      color: #000;
+    }
+    .modal-title {
+      color: #004080;
+      margin-top: 0;
+    }
+    .modal-text {
+      margin: 15px 0;
+      line-height: 1.5;
+      color: #333;
+    }
+    .modal-gallery {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .modal-gallery img {
+      max-width: 150px;
+      border-radius: 6px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+      object-fit: cover;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+    .modal-gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    @media (max-width: 900px) {
+      .sections, .events-container {
+        flex-direction: column;
+      }
+      .section, .event-card {
+        flex: 1 1 100%;
+      }
     }
   </style>
 </head>
 <body>
-  <nav>
-    <ul>
-      <li><a href="#home" class="active">Domov</a></li>
-      <li><a href="#about">O nás</a></li>
-      <li><a href="https://www.edupage.org/" target="_blank">EduPage</a></li>
-      <li><a href="#history">História</a></li>
-      <li><a href="#applicants">Uchádzači</a></li>
-      <li><a href="#study">Štúdium</a></li>
-      <li><a href="#maturita">Maturita</a></li>
-      <li><a href="#projects">Projekty</a></li>
-      <li><a href="#docs">Dokumentácia</a></li>
-      <li><a href="#contact">Kontakt</a></li>
-    </ul>
-  </nav>
-
-  <div class="main">
-    <header id="home">
-      <img src="oa.png" alt="Logo školy" />
-      <h1>Obchodná akadémia Mareka Frauwirtha<br>Banská Bystrica</h1>
-    </header>
-
-    <div class="banner">
-      <img src="baner.jpg" alt="Budova školy" />
+  <header>
+    <h1>Vitajte na našej škole</h1>
+  </header>
+  <main>
+    <!-- Pôvodné sekcie -->
+    <div class="sections">
+      <section class="section" id="study-program">
+        <h2>Študijný odbor</h2>
+        <p>Naša škola ponúka kvalitné študijné odbory, ktoré pripravujú študentov na úspešnú kariéru v modernom svete.</p>
+      </section>
+      <section class="section" id="modern-facilities">
+        <h2>Moderné zázemie</h2>
+        <p>Disponujeme modernými triedami, laboratóriami a športoviskami, ktoré umožňujú efektívne učenie a rozvoj talentu.</p>
+      </section>
+      <section class="section" id="international-coop">
+        <h2>Medzinárodná spolupráca</h2>
+        <p>Spolupracujeme s rôznymi školami a inštitúciami v zahraničí, čím rozširujeme obzory našich študentov.</p>
+      </section>
     </div>
 
-    <section id="about">
-<section id="about">
-  <h2>Vitajte na našej škole</h2>
-  <p>Obchodná akadémia v Trnave poskytuje kvalitné stredoškolské vzdelanie s dôrazom na prax a budúcnosť študentov...</p>
-
-  <!-- NOVÁ SEKCIA: Aktuálne udalosti -->
-  <div id="events">
-    <h3>Aktuálne udalosti</h3>
-    <div class="highlights">
-      <div class="card">
-        <h4>Letná akadémia 2025</h4>
-        <p>Od 14. do 18. júla 2025 prebieha Letná akadémia pre budúcich prvákov. Čakajú vás workshopy, tímové aktivity a stretnutia s učiteľmi.</p>
-      </div>
-      <div class="card">
-        <h4>Úspech v ekonomickej olympiáde</h4>
-        <p>Naša študentka Petra získala 2. miesto v celoslovenskom kole Ekonomickej olympiády! Blahoželáme!</p>
-      </div>
-      <div class="card">
-        <h4>Partnerská návšteva z Rakúska</h4>
-        <p>V júni nás navštívili študenti z našej partnerskej školy z Linzu. Spoločne sme pripravili projekt o udržateľnom podnikaní.</p>
-      </div>
-    </div>
-  </div>
-</section>
-<section id="features">
-  <div class="highlights">
-    <div class="card">
-      <h3>Študijný odbor</h3>
-      <p>Obchodná akadémia je štvorročný študijný odbor zakončený maturitou...</p>
-    </div>
-    <div class="card">
-      <h3>Moderné zázemie</h3>
-      <p>Naša škola prešla modernizáciou priestorov, odborných učební a IT vybavenia...</p>
-    </div>
-    <div class="card">
-      <h3>Medzinárodná spolupráca</h3>
-      <p>Spolupracujeme so školami a firmami v zahraničí cez program Erasmus+...</p>
-    </div>
-  </div>
-</section>
-
-
-
-    <section>
-      <div class="two-columns">
-        <div class="contact-section">
-          <h2>Kontaktujte nás</h2>
-          <form id="contactForm" action="https://formspree.io/f/xkgbawok" method="POST" enctype="multipart/form-data">
-            <label for="name" class="sr-only">Meno</label>
-            <input type="text" id="name" name="name" placeholder="Meno" required>
-            
-            <label for="email" class="sr-only">Email</label>
-            <input type="email" id="email" name="email" placeholder="Email" required>
-            
-            <label for="message" class="sr-only">Správa</label>
-            <textarea id="message" name="message" placeholder="Vaša správa" rows="4" required></textarea>
-            
-            <input type="hidden" name="_subject" value="Nová správa z webu OA MF">
-            <input type="text" name="_gotcha" style="display:none">
-            
-            <button type="submit">Odoslať správu</button>
-          </form>
-        </div>
-
-        <div class="weather-container">
-          <h2>Aktuálne počasie</h2>
-          <div class="weather-grid">
-            <div class="weather-card">
-              <img src="https://cdn-icons-png.flaticon.com/512/3093/3093395.png" class="weather-icon" alt="Teplota">
-              <div class="weather-value" id="meteo-temp">-- °C</div>
-              <div class="weather-label">Teplota</div>
-            </div>
-            <div class="weather-card">
-              <img src="https://cdn-icons-png.flaticon.com/512/742/742751.png" class="weather-icon" alt="Pocitová teplota">
-              <div class="weather-value" id="meteo-feelslike">-- °C</div>
-              <div class="weather-label">Pocitová</div>
-            </div>
-            <div class="weather-card">
-              <img src="https://cdn-icons-png.flaticon.com/512/2938/2938122.png" class="weather-icon" alt="Vlhkosť">
-              <div class="weather-value" id="meteo-humidity">-- %</div>
-              <div class="weather-label">Vlhkosť</div>
-            </div>
-            <div class="weather-card">
-              <img src="https://cdn-icons-png.flaticon.com/512/172/172922.png" class="weather-icon" alt="Vietor">
-              <div class="weather-value" id="meteo-wind">-- km/h</div>
-              <div class="weather-label">Vietor</div>
-            </div>
-            <div class="weather-card">
-              <img src="https://cdn-icons-png.flaticon.com/512/263/263115.png" class="weather-icon" alt="Tlak">
-              <div class="weather-value" id="meteo-pressure">-- hPa</div>
-              <div class="weather-label">Tlak</div>
-            </div>
-            <div class="weather-card">
-              <img src="https://cdn-icons-png.flaticon.com/512/4150/4150897.png" class="weather-icon" alt="Zrážky">
-              <div class="weather-value" id="meteo-rain">-- mm</div>
-              <div class="weather-label">Zrážky</div>
-            </div>
-          </div>
-          <p class="weather-update">
-            Dáta poskytuje WeatherAPI.com | 
-            Aktualizované: <span id="update-time">--:--</span>
-          </p>
+    <!-- Karty udalostí -->
+    <div class="events-container">
+      <div class="event-card" data-id="1" tabindex="0" aria-label="Udalosť: Deň otvorených dverí">
+        <img src="https://via.placeholder.com/400x180?text=De%C5%88+otvoren%C3%BDch+dver%C3%AD" alt="Deň otvorených dverí" class="event-image" />
+        <div class="event-content">
+          <h3 class="event-title">Deň otvorených dverí</h3>
+          <p class="event-summary">Pozývame vás na Deň otvorených dverí, kde môžete spoznať našu školu a pedagógov.</p>
         </div>
       </div>
-    </section>
 
-    <footer>
-      <p>© 2024 Obchodná akadémia Mareka Frauwirtha | Vytvorené s ❤️ študentmi školy</p>
-      <p>Adresa: Tajovského 25, 974 01 Banská Bystrica | Tel.: +421 48 414 51 11</p>
-    </footer>
+      <div class="event-card" data-id="2" tabindex="0" aria-label="Udalosť: Športové úspechy">
+        <img src="https://via.placeholder.com/400x180?text=Športov%C3%A9+úspechy" alt="Športové úspechy" class="event-image" />
+        <div class="event-content">
+          <h3 class="event-title">Športové úspechy</h3>
+          <p class="event-summary">Naši študenti dosiahli vynikajúce výsledky na regionálnych športových súťažiach.</p>
+        </div>
+      </div>
+
+      <div class="event-card" data-id="3" tabindex="0" aria-label="Udalosť: Výmena študentov">
+        <img src="https://via.placeholder.com/400x180?text=Výmena+študentov" alt="Výmena študentov" class="event-image" />
+        <div class="event-content">
+          <h3 class="event-title">Výmena študentov</h3>
+          <p class="event-summary">Úspešná výmena študentov s partnerskou školou v zahraničí rozšírila ich skúsenosti.</p>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Modálne okno -->
+  <div id="modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" tabindex="-1">
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Zavrieť modálne okno">&times;</button>
+      <h2 id="modal-title" class="modal-title"></h2>
+      <p class="modal-text"></p>
+      <div class="modal-gallery"></div>
+    </div>
   </div>
 
   <script>
-    // METEO API KONFIGURÁCIA
-    const API_KEY = '3fb2e3f2ab5e4c9596771033250407';
-    const LOCATION = 'Banská Bystrica';
-
-    async function nacitajPocasie() {
-      // Zobraz načítavanie
-      document.querySelectorAll('.weather-value').forEach(el => {
-        el.textContent = '...';
-      });
-      
-      try {
-        const response = await fetch(
-          `https://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${LOCATION}&lang=sk`
-        );
-        
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        
-        const data = await response.json();
-        
-        // Aktualizácia údajov
-        document.getElementById('meteo-temp').textContent = `${data.current.temp_c} °C`;
-        document.getElementById('meteo-feelslike').textContent = `${data.current.feelslike_c} °C`;
-        document.getElementById('meteo-humidity').textContent = `${data.current.humidity} %`;
-        document.getElementById('meteo-wind').textContent = `${data.current.wind_kph} km/h`;
-        document.getElementById('meteo-pressure').textContent = `${data.current.pressure_mb} hPa`;
-        document.getElementById('meteo-rain').textContent = `${data.current.precip_mm} mm`;
-        document.getElementById('update-time').textContent = new Date().toLocaleTimeString('sk-SK');
-      } catch (error) {
-        console.error("Chyba pri načítaní dát:", error);
-        const errorMsg = document.createElement('p');
-        errorMsg.style.color = 'red';
-        errorMsg.style.textAlign = 'center';
-        errorMsg.textContent = 'Počasie sa nepodarilo načítať. Skúste neskôr.';
-        document.querySelector('.weather-container').appendChild(errorMsg);
+    // Dáta udalostí s podrobnými správami a viacerými obrázkami
+    const eventsData = {
+      1: {
+        title: "Deň otvorených dverí",
+        text: "Pozývame vás na náš Deň otvorených dverí, kde budete mať možnosť stretnúť učiteľov, pozrieť si učebne a spoznať našu školu zblízka. Pripravený je aj bohatý program pre všetky vekové kategórie.",
+        images: [
+          "https://via.placeholder.com/600x400?text=De%C5%88+otvoren%C3%BDch+dver%C3%AD+1",
+          "https://via.placeholder.com/600x400?text=De%C5%88+otvoren%C3%BDch+dver%C3%AD+2",
+          "https://via.placeholder.com/600x400?text=De%C5%88+otvoren%C3%BDch+dver%C3%AD+3"
+        ]
+      },
+      2: {
+        title: "Športové úspechy",
+        text: "Naši študenti získali viacero ocenení na regionálnych a krajských športových podujatiach. Sme hrdí na ich úspechy a podporujeme ich ďalší rozvoj v rôznych športových disciplínach.",
+        images: [
+          "https://via.placeholder.com/600x400?text=Šport+1",
+          "https://via.placeholder.com/600x400?text=Šport+2",
+          "https://via.placeholder.com/600x400?text=Šport+3"
+        ]
+      },
+      3: {
+        title: "Výmena študentov",
+        text: "Naša škola úspešne organizuje programy výmeny študentov s partnerskými školami v zahraničí, ktoré umožňujú našim študentom spoznať novú kultúru a zdokonaliť jazykové znalosti.",
+        images: [
+          "https://via.placeholder.com/600x400?text=Výmena+1",
+          "https://via.placeholder.com/600x400?text=Výmena+2",
+          "https://via.placeholder.com/600x400?text=Výmena+3"
+        ]
       }
+    };
+
+    const modal = document.getElementById('modal');
+    const modalTitle = modal.querySelector('.modal-title');
+    const modalText = modal.querySelector('.modal-text');
+    const modalGallery = modal.querySelector('.modal-gallery');
+    const closeBtn = modal.querySelector('.modal-close');
+
+    // Otvorenie modálneho okna s dátami udalosti
+    function openModal(eventId) {
+      const event = eventsData[eventId];
+      if (!event) return;
+      modalTitle.textContent = event.title;
+      modalText.textContent = event.text;
+      modalGallery.innerHTML = '';
+      event.images.forEach(src => {
+        const img = document.createElement('img');
+        img.src = src;
+        img.alt = event.title + " - fotografia";
+        modalGallery.appendChild(img);
+      });
+      modal.style.display = 'block';
+      modal.focus();
     }
 
-    // Navigácia
-    document.querySelectorAll('nav a').forEach(link => {
-      link.addEventListener('click', function(e) {
-        if (!this.getAttribute('href').startsWith('http')) {
+    // Zatvorenie modálneho okna
+    function closeModal() {
+      modal.style.display = 'none';
+      modalTitle.textContent = '';
+      modalText.textContent = '';
+      modalGallery.innerHTML = '';
+    }
+
+    // Pridanie event listenerov na karty
+    document.querySelectorAll('.event-card').forEach(card => {
+      card.addEventListener('click', () => {
+        const id = card.getAttribute('data-id');
+        openModal(id);
+      });
+      // Pre prístupnosť: otvoriť aj klávesnicou Enter alebo Space
+      card.addEventListener('keydown', e => {
+        if(e.key === 'Enter' || e.key === ' ') {
           e.preventDefault();
-          document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
-          this.classList.add('active');
-          document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-          });
+          const id = card.getAttribute('data-id');
+          openModal(id);
         }
       });
     });
 
-    // Kontaktný formulár
-    document.getElementById('contactForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      alert('Ďakujeme za správu! Ozveme sa vám čoskoro.');
-      this.reset();
+    // Close button
+    closeBtn.addEventListener('click', closeModal);
+
+    // Zatvorenie modálu kliknutím mimo obsahu
+    modal.addEventListener('click', (e) => {
+      if(e.target === modal) {
+        closeModal();
+      }
     });
 
-    // Načítaj počasie pri načítaní stránky
-    window.addEventListener('DOMContentLoaded', () => {
-      nacitajPocasie();
-      // Aktualizácia každú hodinu (3600000 ms)
-      setInterval(nacitajPocasie, 3600000);
+    // Zatvorenie modálu klávesou ESC
+    document.addEventListener('keydown', (e) => {
+      if(e.key === 'Escape' && modal.style.display === 'block') {
+        closeModal();
+      }
     });
   </script>
 </body>
