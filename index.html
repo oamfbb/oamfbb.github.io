@@ -2,10 +2,10 @@
 <html lang="sk">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Obchodná akadémia Mareka Frauwirtha</title>
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
   <style>
+    /* Základné štýly a layout */
     :root {
       --blue-dark: #005c8a;
       --blue-light: #00a3e0;
@@ -137,21 +137,17 @@
       cursor: pointer;
     }
 
-    /* Tu je pridanie efektu pri hover */
     .card:hover {
       transform: translateY(-8px) scale(1.05);
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
       z-index: 5;
     }
 
-    .card h3 {
+    .card h3,
+    .card h4 {
       color: var(--blue-dark);
       margin-top: 0;
       margin-bottom: 1rem;
-    }
-
-    .study-program {
-      border-left: 4px solid var(--orange);
     }
 
     .two-columns {
@@ -159,51 +155,6 @@
       grid-template-columns: 1fr 1fr;
       gap: 2rem;
       margin: 2rem 0;
-    }
-
-    .weather-container {
-      background: white;
-      border-radius: 8px;
-      padding: 1.5rem;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      height: 100%;
-    }
-
-    .weather-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-      gap: 1rem;
-      margin: 1rem 0;
-    }
-
-    .weather-card {
-      text-align: center;
-      padding: 0.5rem;
-    }
-
-    .weather-card img {
-      width: 48px;
-      height: 48px;
-      margin-bottom: 0.5rem;
-      filter: drop-shadow(0 2px 2px rgba(0,0,0,0.2));
-    }
-
-    .weather-value {
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: var(--orange);
-    }
-
-    .weather-label {
-      color: var(--blue-dark);
-      font-size: 0.8rem;
-    }
-
-    .weather-update {
-      color: #666;
-      font-size: 0.8rem;
-      text-align: center;
-      margin-top: 1rem;
     }
 
     .contact-section form {
@@ -292,6 +243,55 @@
       white-space: nowrap;
       border-width: 0;
     }
+
+    /* -------- Modal štýly -------- */
+
+    .modal {
+      display: none; /* skryté štandardne */
+      position: fixed;
+      z-index: 9999;
+      left: 0;
+      top: 0;
+      width: 100vw;
+      height: 100vh;
+      overflow-y: auto;
+      background-color: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(4px);
+      padding: 2rem;
+      box-sizing: border-box;
+    }
+
+    .modal-content {
+      background: white;
+      max-width: 700px;
+      margin: 3rem auto;
+      padding: 2rem;
+      border-radius: 10px;
+      position: relative;
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+      animation: fadeIn 0.3s ease forwards;
+    }
+
+    .modal-close {
+      position: absolute;
+      right: 1rem;
+      top: 1rem;
+      font-size: 1.5rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--blue-dark);
+      font-weight: bold;
+    }
+
+    .modal-close:hover {
+      color: var(--orange);
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(-20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
   </style>
 </head>
 <body>
@@ -324,19 +324,18 @@
       <h2>Vitajte na našej škole</h2>
       <p>Obchodná akadémia v Trnave poskytuje kvalitné stredoškolské vzdelanie s dôrazom na prax a budúcnosť študentov...</p>
 
-      <!-- NOVÁ SEKCIA: Aktuálne udalosti -->
       <div id="events">
         <h3>Aktuálne udalosti</h3>
         <div class="highlights">
-          <div class="card">
+          <div class="card" data-title="Letná akadémia 2025" data-content="Od 14. do 18. júla 2025 prebieha Letná akadémia pre budúcich prvákov. Čakajú vás workshopy, tímové aktivity a stretnutia s učiteľmi.">
             <h4>Letná akadémia 2025</h4>
             <p>Od 14. do 18. júla 2025 prebieha Letná akadémia pre budúcich prvákov. Čakajú vás workshopy, tímové aktivity a stretnutia s učiteľmi.</p>
           </div>
-          <div class="card">
+          <div class="card" data-title="Úspech v ekonomickej olympiáde" data-content="Naša študentka Petra získala 2. miesto v celoslovenskom kole Ekonomickej olympiády! Blahoželáme!">
             <h4>Úspech v ekonomickej olympiáde</h4>
             <p>Naša študentka Petra získala 2. miesto v celoslovenskom kole Ekonomickej olympiády! Blahoželáme!</p>
           </div>
-          <div class="card">
+          <div class="card" data-title="Partnerská návšteva z Rakúska" data-content="V júni nás navštívili študenti z našej partnerskej školy z Linzu. Spoločne sme pripravili projekt o udržateľnom podnikaní.">
             <h4>Partnerská návšteva z Rakúska</h4>
             <p>V júni nás navštívili študenti z našej partnerskej školy z Linzu. Spoločne sme pripravili projekt o udržateľnom podnikaní.</p>
           </div>
@@ -346,15 +345,15 @@
 
     <section id="features">
       <div class="highlights">
-        <div class="card">
+        <div class="card" data-title="Študijný odbor" data-content="Obchodná akadémia je štvorročný študijný odbor zakončený maturitou. Počas štúdia sa študenti naučia teóriu aj praktické zručnosti z oblasti ekonómie, účtovníctva a cudzích jazykov.">
           <h3>Študijný odbor</h3>
           <p>Obchodná akadémia je štvorročný študijný odbor zakončený maturitou...</p>
         </div>
-        <div class="card">
+        <div class="card" data-title="Moderné zázemie" data-content="Naša škola prešla modernizáciou priestorov, odborných učební a IT vybavenia, aby sme študentom vytvorili príjemné a inšpirujúce prostredie na učenie.">
           <h3>Moderné zázemie</h3>
           <p>Naša škola prešla modernizáciou priestorov, odborných učební a IT vybavenia...</p>
         </div>
-        <div class="card">
+        <div class="card" data-title="Medzinárodná spolupráca" data-content="Spolupracujeme so školami a firmami v zahraničí cez program Erasmus+. Študenti majú možnosť zúčastniť sa zahraničných stáží a výmenných pobytov.">
           <h3>Medzinárodná spolupráca</h3>
           <p>Spolupracujeme so školami a firmami v zahraničí cez program Erasmus+...</p>
         </div>
@@ -367,16 +366,14 @@
           <h2>Kontaktujte nás</h2>
           <form id="contactForm" action="https://formspree.io/f/xkgbawok" method="POST" enctype="multipart/form-data">
             <label for="name" class="sr-only">Meno</label>
-            <input type="text" id="name" name="name" placeholder="Meno" required>
+            <input type="text" id="name" name="name" placeholder="Meno" required />
             
             <label for="email" class="sr-only">Email</label>
-            <input type="email" id="email" name="email" placeholder="Email" required>
+            <input type="email" id="email" name="email" placeholder="Email" required />
             
             <label for="message" class="sr-only">Správa</label>
             <textarea id="message" name="message" placeholder="Vaša správa" rows="4" required></textarea>
             
-            <input type="hidden" name="_subject" value="Nová správa z webu OA MF">
-            <input type="text" name="_gotcha" style="display:none">
             <button type="submit">Odoslať</button>
           </form>
         </div>
@@ -396,16 +393,69 @@
     </footer>
   </div>
 
+  <!-- Modal okno -->
+  <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" tabindex="-1">
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Zavrieť okno">&times;</button>
+      <h2 id="modalTitle"></h2>
+      <p id="modalText"></p>
+    </div>
+  </div>
+
   <script>
-    // Jednoduchý skript na zvýraznenie aktívneho menu
+    // Menu aktívny link
     document.querySelectorAll('nav a').forEach(link => {
       link.addEventListener('click', e => {
+        e.preventDefault();
         document.querySelector('nav a.active').classList.remove('active');
         e.target.classList.add('active');
+        const target = e.target.getAttribute('href');
+        if(target.startsWith('#')) {
+          document.querySelector(target).scrollIntoView({behavior: 'smooth'});
+        } else {
+          window.open(target, '_blank');
+        }
       });
     });
 
-    // POČASIE cez OpenWeatherMap API - príklad na dynamické načítanie počasia
+    // Modal funkcie
+    const modal = document.getElementById('modal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalText = document.getElementById('modalText');
+    const modalClose = modal.querySelector('.modal-close');
+
+    // Otvorenie modalu s obsahom
+    document.querySelectorAll('.card').forEach(card => {
+      card.addEventListener('click', () => {
+        const title = card.getAttribute('data-title');
+        const content = card.getAttribute('data-content');
+        modalTitle.textContent = title;
+        modalText.textContent = content;
+        modal.style.display = 'block';
+        modal.focus();
+      });
+    });
+
+    // Zavretie modalu
+    modalClose.addEventListener('click', () => {
+      modal.style.display = 'none';
+    });
+
+    // Zavretie klikom mimo modal-content
+    modal.addEventListener('click', e => {
+      if (e.target === modal) {
+        modal.style.display = 'none';
+      }
+    });
+
+    // Zavretie ESC
+    document.addEventListener('keydown', e => {
+      if(e.key === 'Escape' && modal.style.display === 'block') {
+        modal.style.display = 'none';
+      }
+    });
+
+    // Počasie cez OpenWeatherMap API
     async function loadWeather() {
       const apiKey = 'tvoja_api_kluc'; // Nahraď svojím API kľúčom
       const city = 'Banska Bystrica';
