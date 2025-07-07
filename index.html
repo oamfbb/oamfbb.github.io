@@ -131,19 +131,53 @@
     .card {
       background: white;
       border-radius: 8px;
-      padding: 1.5rem;
+      padding: 0;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s;
+      transition: all 0.4s ease;
+      overflow: hidden;
+      position: relative;
+      height: 300px; /* Počiatočná výška */
     }
 
     .card:hover {
-      transform: translateY(-5px);
+      height: auto;
+      min-height: 300px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+      z-index: 10;
+    }
+
+    .card-image {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .card-content {
+      padding: 1.5rem;
     }
 
     .card h3 {
       color: var(--blue-dark);
       margin-top: 0;
       margin-bottom: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .card:hover h3 {
+      color: var(--orange);
+    }
+
+    .card p {
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: all 0.5s ease;
+    }
+
+    .card:hover p {
+      max-height: 500px;
+      opacity: 1;
     }
 
     .study-program {
@@ -155,14 +189,6 @@
       grid-template-columns: 1fr 1fr;
       gap: 2rem;
       margin: 2rem 0;
-    }
-
-    .weather-container {
-      background: white;
-      border-radius: 8px;
-      padding: 1.5rem;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      height: 100%;
     }
 
     /* Štýly pre meteostanicu */
@@ -295,6 +321,10 @@
       .station-data {
         grid-template-columns: repeat(2, 1fr);
       }
+      
+      .card {
+        height: 280px;
+      }
     }
 
     .sr-only {
@@ -340,19 +370,62 @@
       <h2>Vitajte na našej škole</h2>
       <p>Obchodná akadémia Mareka Frauwirtha v Banskej Bystrici poskytuje kvalitné obchodné a ekonomické vzdelávanie už viac ako 100 rokov. Sme moderná škola s bohatou históriou, ktorá pripravuje študentov na úspešnú kariéru v oblasti obchodu, financií a podnikania.</p>
       
+      <h3 style="margin-top: 2rem; color: var(--blue-dark);">Naše výhody</h3>
       <div class="highlights">
-        <div class="card study-program">
-          <h3>Študijný odbor 6317 M</h3>
-          <p>Absolvent je pripravený pre výkon obchodno-podnikateľských funkcií vo výrobných podnikoch, v tuzemskom i medzinárodnom obchode, peňažníctve, cestovnom ruchu a ďalších službách v štátnej i verejnej správe.</p>
-          <p>Odborné vzdelávanie umožňuje absolventovi získať odborné teoretické vedomosti, prostredníctvom ktorých je schopný samostatne vykonávať ekonomické činnosti súvisiace s obchodno-podnikateľskou praxou spojené so získavaním a spracúvaním informácií v oblasti výroby, zásobovania, odbytu, marketingu, personalistiky, vo vedení administratívy, účtovníctva a finančného hospodárenia.</p>
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" class="card-image" alt="Študijný odbor">
+          <div class="card-content">
+            <h3>Študijný odbor 6317 M</h3>
+            <p>Absolvent je pripravený pre výkon obchodno-podnikateľských funkcií vo výrobných podnikoch, v tuzemskom i medzinárodnom obchode, peňažníctve, cestovnom ruchu a ďalších službách v štátnej i verejnej správe.</p>
+          </div>
         </div>
         <div class="card">
-          <h3>Moderné zázemie</h3>
-          <p>Škola disponuje počítačovými učebňami, jazykovými laboratóriami, študovňami a športovým areálom. Všetky učebne sú vybavené modernou technikou.</p>
+          <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" class="card-image" alt="Moderné zázemie">
+          <div class="card-content">
+            <h3>Moderné zázemie</h3>
+            <p>Škola disponuje počítačovými učebňami, jazykovými laboratóriami, študovňami a športovým areálom. Všetky učebne sú vybavené modernou technikou.</p>
+          </div>
         </div>
         <div class="card">
-          <h3>Medzinárodná spolupráca</h3>
-          <p>Účastníme sa programov Erasmus+ a máme partnerské školy v Nemecku, Rakúsku a Poľsku. Študenti majú možnosť zahraničných stáží.</p>
+          <img src="https://images.unsplash.com/photo-1531058020387-3be344556be6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" class="card-image" alt="Medzinárodná spolupráca">
+          <div class="card-content">
+            <h3>Medzinárodná spolupráca</h3>
+            <p>Účastníme sa programov Erasmus+ a máme partnerské školy v Nemecku, Rakúsku a Poľsku. Študenti majú možnosť zahraničných stáží.</p>
+          </div>
+        </div>
+      </div>
+      
+      <h3 style="margin-top: 3rem; color: var(--blue-dark);">Aktuálne udalosti</h3>
+      <div class="highlights">
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" class="card-image" alt="Letná akadémia">
+          <div class="card-content">
+            <h3>Letná akadémia 2025</h3>
+            <p>Od 14. do 18. júla 2025 prebieha Letná akadémia pre budúcich prvákov. Čakajú vás workshopy, tímové aktivity a stretnutia s učiteľmi.</p>
+            <p><strong>Miesto:</strong> Školská aula<br>
+               <strong>Čas:</strong> 9:00 - 15:00<br>
+               <strong>Kontakt:</strong> akademiak@oamf.sk</p>
+          </div>
+        </div>
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1580894908361-967195033215?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" class="card-image" alt="Ekonomická olympiáda">
+          <div class="card-content">
+            <h3>Úspech v ekonomickej olympiáde</h3>
+            <p>Naša študentka Petra získala 2. miesto v celoslovenskom kole Ekonomickej olympiády! Blahoželáme!</p>
+            <p><strong>Finálové kolo:</strong> 15. mája 2025<br>
+               <strong>Miesto:</strong> Bratislava<br>
+               <strong>Výhra:</strong> Stipendium 1000€</p>
+          </div>
+        </div>
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" class="card-image" alt="Partnerská škola">
+          <div class="card-content">
+            <h3>Partnerská návšteva z Rakúska</h3>
+            <p>V júni nás navštívili študenti z našej partnerskej školy z Linzu. Spoločne sme pripravili projekt o udržateľnom podnikaní.</p>
+            <p><strong>Trvanie:</strong> 5.-9.6.2025<br>
+               <strong>Program:</strong> Workshop, exkurzie, prezentácie<br>
+               <strong>Výstupy:</strong> Spoločná publikácia</p>
+          </div>
         </div>
       </div>
     </section>
@@ -378,49 +451,46 @@
           </form>
         </div>
 
-        <div class="weather-container">
-          <div class="station-container">
-            <div class="station-header">
-              <!-- Opravené logo pre meteostanicu -->
-              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M9 3L5 6V20H19V6L15 3H9Z" stroke="#005c8a" stroke-width="2"/>
-                <path d="M9 8L12 11L15 8" stroke="#005c8a" stroke-width="2" stroke-linecap="round"/>
-                <circle cx="12" cy="14" r="2" fill="#f7941d"/>
-                <path d="M12 11V14" stroke="#005c8a" stroke-width="2" stroke-linecap="round"/>
-              </svg>
-              <h3 class="station-title">Školská meteostanica</h3>
-            </div>
-            <div class="station-data" id="station-data">
-              <div class="data-item">
-                <div class="data-value" id="station-temp">-- °C</div>
-                <div class="data-label">Teplota</div>
-              </div>
-              <div class="data-item">
-                <div class="data-value" id="station-humidity">-- %</div>
-                <div class="data-label">Vlhkosť</div>
-              </div>
-              <div class="data-item">
-                <div class="data-value" id="station-wind">-- km/h</div>
-                <div class="data-label">Vietor</div>
-              </div>
-              <div class="data-item">
-                <div class="data-value" id="station-pressure">-- hPa</div>
-                <div class="data-label">Tlak</div>
-              </div>
-              <div class="data-item">
-                <div class="data-value" id="station-rain">-- mm</div>
-                <div class="data-label">Zrážky</div>
-              </div>
-              <div class="data-item">
-                <div class="data-value" id="station-dewpoint">-- °C</div>
-                <div class="data-label">Rosný bod</div>
-              </div>
-            </div>
-            <p class="weather-update">
-              Dáta z meteostanice OA MF | 
-              Aktualizované: <span id="station-update-time">--:--</span>
-            </p>
+        <div class="station-container">
+          <div class="station-header">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M9 3L5 6V20H19V6L15 3H9Z" stroke="#005c8a" stroke-width="2"/>
+              <path d="M9 8L12 11L15 8" stroke="#005c8a" stroke-width="2" stroke-linecap="round"/>
+              <circle cx="12" cy="14" r="2" fill="#f7941d"/>
+              <path d="M12 11V14" stroke="#005c8a" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            <h3 class="station-title">Školská meteostanica</h3>
           </div>
+          <div class="station-data" id="station-data">
+            <div class="data-item">
+              <div class="data-value" id="station-temp">-- °C</div>
+              <div class="data-label">Teplota</div>
+            </div>
+            <div class="data-item">
+              <div class="data-value" id="station-humidity">-- %</div>
+              <div class="data-label">Vlhkosť</div>
+            </div>
+            <div class="data-item">
+              <div class="data-value" id="station-wind">-- km/h</div>
+              <div class="data-label">Vietor</div>
+            </div>
+            <div class="data-item">
+              <div class="data-value" id="station-pressure">-- hPa</div>
+              <div class="data-label">Tlak</div>
+            </div>
+            <div class="data-item">
+              <div class="data-value" id="station-rain">-- mm</div>
+              <div class="data-label">Zrážky</div>
+            </div>
+            <div class="data-item">
+              <div class="data-value" id="station-dewpoint">-- °C</div>
+              <div class="data-label">Rosný bod</div>
+            </div>
+          </div>
+          <p class="weather-update">
+            Dáta z meteostanice OA MF | 
+            Aktualizované: <span id="station-update-time">--:--</span>
+          </p>
         </div>
       </div>
     </section>
