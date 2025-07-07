@@ -317,181 +317,230 @@
     </header>
 
     <div class="banner">
-      <img src="baner.jpg" alt="Budova školy" />
+      <img src="baner.jpg" alt="Banner školy" />
     </div>
 
     <section id="about">
-      <h2>Vitajte na našej škole</h2>
-      <p>Obchodná akadémia v Trnave poskytuje kvalitné stredoškolské vzdelanie s dôrazom na prax a budúcnosť študentov...</p>
+      <h2>O nás</h2>
+      <p>Obchodná akadémia Mareka Frauwirtha je moderná škola s dlhoročnou tradíciou. Poskytujeme kvalitné vzdelanie v oblasti ekonomiky, informatiky a cudzích jazykov.</p>
+    </section>
 
-      <div id="events">
-        <h3>Aktuálne udalosti</h3>
-        <div class="highlights">
-          <div class="card" data-title="Letná akadémia 2025" data-content="Od 14. do 18. júla 2025 prebieha Letná akadémia pre budúcich prvákov. Čakajú vás workshopy, tímové aktivity a stretnutia s učiteľmi.">
-            <h4>Letná akadémia 2025</h4>
-            <p>Od 14. do 18. júla 2025 prebieha Letná akadémia pre budúcich prvákov. Čakajú vás workshopy, tímové aktivity a stretnutia s učiteľmi.</p>
-          </div>
-          <div class="card" data-title="Úspech v ekonomickej olympiáde" data-content="Naša študentka Petra získala 2. miesto v celoslovenskom kole Ekonomickej olympiády! Blahoželáme!">
-            <h4>Úspech v ekonomickej olympiáde</h4>
-            <p>Naša študentka Petra získala 2. miesto v celoslovenskom kole Ekonomickej olympiády! Blahoželáme!</p>
-          </div>
-          <div class="card" data-title="Partnerská návšteva z Rakúska" data-content="V júni nás navštívili študenti z našej partnerskej školy z Linzu. Spoločne sme pripravili projekt o udržateľnom podnikaní.">
-            <h4>Partnerská návšteva z Rakúska</h4>
-            <p>V júni nás navštívili študenti z našej partnerskej školy z Linzu. Spoločne sme pripravili projekt o udržateľnom podnikaní.</p>
-          </div>
-        </div>
+    <section id="history" class="highlights">
+      <article class="card" tabindex="0" data-modal-target="#modal-history">
+        <h3>História školy</h3>
+        <p>Škola bola založená v roku 1945 a odvtedy neustále rastie a inovuje svoje vzdelávacie programy.</p>
+      </article>
+      <article class="card" tabindex="0" data-modal-target="#modal-location">
+        <h3>Lokalita</h3>
+        <p>Nachádzame sa v centre Banskej Bystrice, čo zabezpečuje dobrú dostupnosť pre všetkých žiakov.</p>
+      </article>
+    </section>
+
+    <section id="applicants">
+      <h2>Uchádzači</h2>
+      <p>Ak uvažujete o štúdiu na našej škole, máme pre vás pripravené všetky potrebné informácie, ktoré vám pomôžu pri rozhodovaní.</p>
+      <ul>
+        <li>Prehľad študijných odborov</li>
+        <li>Podmienky prijatia</li>
+        <li>Termíny prijímacích skúšok</li>
+      </ul>
+    </section>
+
+    <section id="study" class="two-columns">
+      <div>
+        <h2>Štúdium</h2>
+        <p>Ponúkame študijné programy s dôrazom na praktické zručnosti a prípravu na trh práce.</p>
+        <ul>
+          <li>Ekonomika podniku</li>
+          <li>Informačné technológie</li>
+          <li>Medzinárodný obchod</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Prečo študovať u nás?</h3>
+        <p>Moderné vybavenie, skúsení pedagógovia a množstvo mimoškolských aktivít.</p>
       </div>
     </section>
 
-    <section id="features">
-      <div class="highlights">
-        <div class="card" data-title="Študijný odbor" data-content="Obchodná akadémia je štvorročný študijný odbor zakončený maturitou. Počas štúdia sa študenti naučia teóriu aj praktické zručnosti z oblasti ekonómie, účtovníctva a cudzích jazykov.">
-          <h3>Študijný odbor</h3>
-          <p>Obchodná akadémia je štvorročný študijný odbor zakončený maturitou...</p>
-        </div>
-        <div class="card" data-title="Moderné zázemie" data-content="Naša škola prešla modernizáciou priestorov, odborných učební a IT vybavenia, aby sme študentom vytvorili príjemné a inšpirujúce prostredie na učenie.">
-          <h3>Moderné zázemie</h3>
-          <p>Naša škola prešla modernizáciou priestorov, odborných učební a IT vybavenia...</p>
-        </div>
-        <div class="card" data-title="Medzinárodná spolupráca" data-content="Spolupracujeme so školami a firmami v zahraničí cez program Erasmus+. Študenti majú možnosť zúčastniť sa zahraničných stáží a výmenných pobytov.">
-          <h3>Medzinárodná spolupráca</h3>
-          <p>Spolupracujeme so školami a firmami v zahraničí cez program Erasmus+...</p>
-        </div>
-      </div>
+    <section id="maturita">
+      <h2>Maturita</h2>
+      <p>Príprava na maturitné skúšky je u nás komplexná, zahŕňa prednášky, konzultácie a cvičné testy.</p>
     </section>
 
-    <section>
-      <div class="two-columns">
-        <div class="contact-section">
-          <h2>Kontaktujte nás</h2>
-          <form id="contactForm" action="https://formspree.io/f/xkgbawok" method="POST" enctype="multipart/form-data">
-            <label for="name" class="sr-only">Meno</label>
-            <input type="text" id="name" name="name" placeholder="Meno" required />
-            
-            <label for="email" class="sr-only">Email</label>
-            <input type="email" id="email" name="email" placeholder="Email" required />
-            
-            <label for="message" class="sr-only">Správa</label>
-            <textarea id="message" name="message" placeholder="Vaša správa" rows="4" required></textarea>
-            
-            <button type="submit">Odoslať</button>
-          </form>
-        </div>
+    <section id="projects" class="highlights">
+      <article class="card" tabindex="0" data-modal-target="#modal-project1">
+        <h3>Projekt Ekoškola</h3>
+        <p>Naša škola sa aktívne zapája do environmentálnych projektov a podporuje udržateľný rozvoj.</p>
+      </article>
+      <article class="card" tabindex="0" data-modal-target="#modal-project2">
+        <h3>IT Workshopy</h3>
+        <p>Organizujeme pravidelné workshopy zamerané na moderné IT technológie a programovanie.</p>
+      </article>
+    </section>
 
-        <div class="weather-container" aria-label="Počasie">
-          <h2>Počasie v Banskej Bystrici</h2>
-          <div id="weather" class="weather-grid">
-            <!-- Dynamicky sa vloží počasie -->
-          </div>
-          <div class="weather-update" id="weather-update"></div>
-        </div>
+    <section id="docs">
+      <h2>Dokumentácia</h2>
+      <p>Tu nájdete všetky dôležité dokumenty pre študentov aj rodičov.</p>
+      <ul>
+        <li><a href="#">Školský poriadok</a></li>
+        <li><a href="#">Všeobecné podmienky</a></li>
+        <li><a href="#">Rozvrh hodín</a></li>
+      </ul>
+    </section>
+
+    <section id="contact" class="contact-section">
+      <h2>Kontakt</h2>
+      <form id="contactForm" action="#" method="post">
+        <label for="name">Meno:</label>
+        <input type="text" id="name" name="name" required />
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="message">Správa:</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+
+        <button type="submit">Odoslať</button>
+      </form>
+
+      <div id="weather" aria-live="polite" style="margin-top: 2rem;">
+        <h3>Počasie v Banskej Bystrici</h3>
+        <p id="weatherInfo">Načítavam...</p>
       </div>
     </section>
 
     <footer>
-      &copy; 2025 Obchodná akadémia Mareka Frauwirtha - Všetky práva vyhradené
+      <p>© 2025 Obchodná akadémia Mareka Frauwirtha</p>
     </footer>
   </div>
 
-  <!-- Modal okno -->
-  <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" tabindex="-1">
+  <!-- Modaly -->
+  <div id="modal-history" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-history-title" aria-describedby="modal-history-desc">
     <div class="modal-content">
-      <button class="modal-close" aria-label="Zavrieť okno">&times;</button>
-      <h2 id="modalTitle"></h2>
-      <p id="modalText"></p>
+      <button class="modal-close" aria-label="Zavrieť modálne okno">&times;</button>
+      <h2 id="modal-history-title">História školy</h2>
+      <p id="modal-history-desc">Obchodná akadémia Mareka Frauwirtha bola založená v roku 1945. Odvtedy sa neustále rozvíja a modernizuje.</p>
+    </div>
+  </div>
+
+  <div id="modal-location" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-location-title" aria-describedby="modal-location-desc">
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Zavrieť modálne okno">&times;</button>
+      <h2 id="modal-location-title">Lokalita</h2>
+      <p id="modal-location-desc">Škola sa nachádza v centre Banskej Bystrice, blízko autobusovej stanice a ďalších dôležitých zariadení.</p>
+    </div>
+  </div>
+
+  <div id="modal-project1" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-project1-title" aria-describedby="modal-project1-desc">
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Zavrieť modálne okno">&times;</button>
+      <h2 id="modal-project1-title">Projekt Ekoškola</h2>
+      <p id="modal-project1-desc">Zapojujeme sa do environmentálnych projektov a podporujeme udržateľný rozvoj v školách a komunite.</p>
+    </div>
+  </div>
+
+  <div id="modal-project2" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-project2-title" aria-describedby="modal-project2-desc">
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Zavrieť modálne okno">&times;</button>
+      <h2 id="modal-project2-title">IT Workshopy</h2>
+      <p id="modal-project2-desc">Organizujeme workshopy zamerané na programovanie, nové technológie a digitálne zručnosti.</p>
     </div>
   </div>
 
   <script>
-    // Menu aktívny link
-    document.querySelectorAll('nav a').forEach(link => {
-      link.addEventListener('click', e => {
-        e.preventDefault();
-        document.querySelector('nav a.active').classList.remove('active');
-        e.target.classList.add('active');
-        const target = e.target.getAttribute('href');
-        if(target.startsWith('#')) {
-          document.querySelector(target).scrollIntoView({behavior: 'smooth'});
-        } else {
-          window.open(target, '_blank');
+    // Menu - zvýraznenie aktívnej položky podľa scrollu
+    const menuLinks = document.querySelectorAll('nav a[href^="#"]');
+
+    function onScroll() {
+      const scrollPos = window.scrollY + 100; // offset pre lepšiu detekciu
+      menuLinks.forEach(link => {
+        const section = document.querySelector(link.getAttribute('href'));
+        if (
+          section &&
+          scrollPos >= section.offsetTop &&
+          scrollPos < section.offsetTop + section.offsetHeight
+        ) {
+          menuLinks.forEach(l => l.classList.remove('active'));
+          link.classList.add('active');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', onScroll);
+
+    // Modálne okná - otváranie a zatváranie
+    const modalTriggers = document.querySelectorAll('[data-modal-target]');
+    const modals = document.querySelectorAll('.modal');
+    const modalCloses = document.querySelectorAll('.modal-close');
+
+    modalTriggers.forEach(trigger => {
+      trigger.addEventListener('click', () => {
+        const modalId = trigger.getAttribute('data-modal-target');
+        const modal = document.querySelector(modalId);
+        if (modal) {
+          modal.style.display = 'block';
+          modal.querySelector('.modal-close').focus();
+        }
+      });
+
+      // Prístupnosť: otvoriť modál klávesou Enter aj Space
+      trigger.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          trigger.click();
         }
       });
     });
 
-    // Modal funkcie
-    const modal = document.getElementById('modal');
-    const modalTitle = document.getElementById('modalTitle');
-    const modalText = document.getElementById('modalText');
-    const modalClose = modal.querySelector('.modal-close');
-
-    // Otvorenie modalu s obsahom
-    document.querySelectorAll('.card').forEach(card => {
-      card.addEventListener('click', () => {
-        const title = card.getAttribute('data-title');
-        const content = card.getAttribute('data-content');
-        modalTitle.textContent = title;
-        modalText.textContent = content;
-        modal.style.display = 'block';
-        modal.focus();
+    modalCloses.forEach(button => {
+      button.addEventListener('click', () => {
+        button.closest('.modal').style.display = 'none';
       });
     });
 
-    // Zavretie modalu
-    modalClose.addEventListener('click', () => {
-      modal.style.display = 'none';
+    // Zatvorenie modálu kliknutím mimo obsahu
+    modals.forEach(modal => {
+      modal.addEventListener('click', e => {
+        if (e.target === modal) {
+          modal.style.display = 'none';
+        }
+      });
     });
 
-    // Zavretie klikom mimo modal-content
-    modal.addEventListener('click', e => {
-      if (e.target === modal) {
-        modal.style.display = 'none';
+    // Zatvorenie modálu klávesou Escape
+    window.addEventListener('keydown', e => {
+      if (e.key === 'Escape') {
+        modals.forEach(modal => {
+          modal.style.display = 'none';
+        });
       }
     });
 
-    // Zavretie ESC
-    document.addEventListener('keydown', e => {
-      if(e.key === 'Escape' && modal.style.display === 'block') {
-        modal.style.display = 'none';
-      }
-    });
+    // Načítanie počasia cez OpenWeatherMap API
+    const weatherInfo = document.getElementById('weatherInfo');
+    const apiKey = 'tvoja_openweathermap_api_kluc'; // TU vlož svoj kľúč
 
-    // Počasie cez OpenWeatherMap API
-    async function loadWeather() {
-      const apiKey = 'tvoja_api_kluc'; // Nahraď svojím API kľúčom
-      const city = 'Banska Bystrica';
-      const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&lang=sk&appid=${apiKey}`;
+    async function fetchWeather() {
       try {
-        const res = await fetch(url);
-        const data = await res.json();
-        if (data.cod !== 200) {
-          document.getElementById('weather').textContent = 'Počasie sa nedá načítať.';
-          return;
-        }
-        const weatherDiv = document.getElementById('weather');
-        weatherDiv.innerHTML = `
-          <div class="weather-card">
-            <img src="https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png" alt="${data.weather[0].description}" />
-            <div class="weather-value">${Math.round(data.main.temp)}°C</div>
-            <div class="weather-label">Teplota</div>
-          </div>
-          <div class="weather-card">
-            <img src="icons/wind.svg" alt="Vietor" />
-            <div class="weather-value">${Math.round(data.wind.speed * 3.6)} km/h</div>
-            <div class="weather-label">Vietor</div>
-          </div>
-          <div class="weather-card">
-            <img src="icons/humidity.svg" alt="Vlhkosť" />
-            <div class="weather-value">${data.main.humidity}%</div>
-            <div class="weather-label">Vlhkosť</div>
-          </div>
+        const response = await fetch(
+          `https://api.openweathermap.org/data/2.5/weather?q=Banska Bystrica,sk&appid=${apiKey}&units=metric&lang=sk`
+        );
+        if (!response.ok) throw new Error('Chyba pri načítaní počasia');
+        const data = await response.json();
+        const temp = Math.round(data.main.temp);
+        const desc = data.weather[0].description;
+        const icon = data.weather[0].icon;
+        weatherInfo.innerHTML = `
+          <img src="https://openweathermap.org/img/wn/${icon}@2x.png" alt="${desc}" style="vertical-align:middle; width:50px; height:50px;" />
+          <span style="font-size:1.2rem; vertical-align:middle;">${temp}°C, ${desc}</span>
         `;
-        const updated = new Date(data.dt * 1000);
-        document.getElementById('weather-update').textContent = `Aktualizované: ${updated.toLocaleTimeString()}`;
-      } catch (error) {
-        document.getElementById('weather').textContent = 'Počasie sa nedá načítať.';
+      } catch (err) {
+        weatherInfo.textContent = 'Nepodarilo sa načítať počasie.';
+        console.error(err);
       }
     }
-    loadWeather();
+
+    fetchWeather();
   </script>
 </body>
 </html>
