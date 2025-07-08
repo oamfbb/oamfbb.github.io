@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="sk">
 <head>
@@ -123,7 +124,7 @@
 
     .highlights {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(3, 1fr);
       gap: 2rem;
       margin-top: 2rem;
     }
@@ -152,7 +153,7 @@
 
     .two-columns {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(3, 1fr);
       gap: 2rem;
       margin: 2rem 0;
     }
@@ -189,7 +190,7 @@
     
     .station-data {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      grid-template-columns: repeat(3, 1fr);
       gap: 1rem;
     }
     
@@ -289,11 +290,11 @@
       }
 
       .two-columns {
-        grid-template-columns: 1fr;
+      grid-template-columns: repeat(3, 1fr);
       }
       
       .station-data {
-        grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       }
     }
 
@@ -363,32 +364,19 @@
       <h2>Aktuálne udalosti</h2>
       <div class="highlights">
         <div class="card">
-          <img src="udalost1.jpg" alt="Udalosť 1" style="width:100%; border-radius:8px;">
-          <h3>Deň otvorených dverí</h3>
-          <p><strong>Dátum:</strong> 15. jún 2025</p>
-          <p>Príďte spoznať našu školu, učiteľov a študentov. Čaká vás bohatý program a prehliadka priestorov.</p>
-          <button onclick="this.nextElementSibling.style.display='block'; this.style.display='none';">Zobraziť viac</button>
-          <div style="display:none;">
-            <p>Na DOD sa predstavia všetky študijné odbory, prebehne prezentácia projektov a diskusia s absolventmi.</p>
-            <div class="gallery">
-              <img src="dod1.jpg" style="width:48%; margin:1%;">
-              <img src="dod2.jpg" style="width:48%; margin:1%;">
-            </div>
-          </div>
+          <img src="Image_1.jpg" alt="Aktuálna udalosť" style="width:100%; border-radius:8px;">
         </div>
         <div class="card">
           <img src="udalost2.jpg" alt="Udalosť 2" style="width:100%; border-radius:8px;">
           <h3>Úspech na olympiáde</h3>
           <p><strong>Dátum:</strong> 10. máj 2025</p>
           <p>Naši študenti získali 1. miesto v krajskom kole Ekonomickej olympiády. Gratulujeme!</p>
-          <button onclick="this.nextElementSibling.style.display='block'; this.style.display='none';">Zobraziť viac</button>
-          <div style="display:none;">
-            <p>Študenti 4. ročníka preukázali výborné znalosti z makroekonómie a finančnej gramotnosti.</p>
-            <div class="gallery">
-              <img src="olympiada1.jpg" style="width:48%; margin:1%;">
-              <img src="olympiada2.jpg" style="width:48%; margin:1%;">
-            </div>
-          </div>
+        </div>
+        <div class="card">
+          <img src="udalost3.jpg" alt="Udalosť 3" style="width:100%; border-radius:8px;">
+          <h3>Ilustračná udalosť 3</h3>
+          <p><strong>Dátum:</strong> 1. júl 2025</p>
+          <p>Táto udalosť je pridaná ako ilustračný príklad tretej karty.</p>
         </div>
       </div>
     </section>
