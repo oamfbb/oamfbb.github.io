@@ -1,12 +1,13 @@
 
 <!DOCTYPE html>
+
 <html lang="sk">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Obchodná akadémia Mareka Frauwirtha</title>
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Obchodná akadémia Mareka Frauwirtha</title>
+<link href="favicon.ico" rel="icon" type="image/x-icon"/>
+<style>
     :root {
       --blue-dark: #005c8a;
       --blue-light: #00a3e0;
@@ -312,150 +313,138 @@
   </style>
 </head>
 <body>
-  <nav>
-    <ul>
-      <li><a href="#home" class="active">Domov</a></li>
-      <li><a href="#about">O nás</a></li>
-      <li><a href="https://www.edupage.org/" target="_blank">EduPage</a></li>
-      <li><a href="#history">História</a></li>
-      <li><a href="#applicants">Uchádzači</a></li>
-      <li><a href="#study">Štúdium</a></li>
-      <li><a href="#maturita">Maturita</a></li>
-      <li><a href="#projects">Projekty</a></li>
-      <li><a href="#docs">Dokumentácia</a></li>
-      <li><a href="#contact">Kontakt</a></li>
-    </ul>
-  </nav>
-
-  <div class="main">
-    <header id="home">
-      <img src="oa.png" alt="Logo školy" />
-      <h1>Obchodná akadémia Mareka Frauwirtha<br>Banská Bystrica</h1>
-    </header>
-
-    <div class="banner">
-      <img src="baner.jpg" alt="Budova školy" />
-    </div>
-
-    <section id="about">
-      <h2>Vitajte na našej škole</h2>
-      <p>Obchodná akadémia Mareka Frauwirtha v Banskej Bystrici poskytuje kvalitné obchodné a ekonomické vzdelávanie už viac ako 100 rokov. Sme moderná škola s bohatou históriou, ktorá pripravuje študentov na úspešnú kariéru v oblasti obchodu, financií a podnikania.</p>
-      
-      <div class="highlights">
-        <div class="card study-program">
-          <h3>Študijný odbor 6317 M</h3>
-          <p>Absolvent je pripravený pre výkon obchodno-podnikateľských funkcií vo výrobných podnikoch, v tuzemskom i medzinárodnom obchode, peňažníctve, cestovnom ruchu a ďalších službách v štátnej i verejnej správe.</p>
-          <button onclick="this.nextElementSibling.style.display='block'; this.style.display='none';">Zobraziť viac</button>
-          <div style="display:none;">
-          <p>Odborné vzdelávanie umožňuje absolventovi získať odborné teoretické vedomosti, prostredníctvom ktorých je schopný samostatne vykonávať ekonomické činnosti súvisiace s obchodno-podnikateľskou praxou spojené so získavaním a spracúvaním informácií v oblasti výroby, zásobovania, odbytu, marketingu, personalistiky, vo vedení administratívy, účtovníctva a finančného hospodárenia.</p>
-          </div>
-        </div>
-        <div class="card">
-          <h3>Moderné zázemie</h3>
-          <p>Škola disponuje počítačovými učebňami, jazykovými laboratóriami, študovňami a športovým areálom. Všetky učebne sú vybavené modernou technikou.</p>
-        </div>
-        <div class="card">
-          <h3>Medzinárodná spolupráca</h3>
-          <p>Účastníme sa programov Erasmus+ a máme partnerské školy v Nemecku, Rakúsku a Poľsku. Študenti majú možnosť zahraničných stáží.</p>
-        </div>
-      </div>
-    </section>
-    <section id="events">
-      <h2>Aktuálne udalosti</h2>
-      <div class="highlights">
-        <div class="card">
-          <img src="Image_1.jpg" alt="Aktuálna udalosť" style="width:100%; border-radius:8px;">
-        </div>
-        <div class="card">
-          <img src="udalost2.jpg" alt="Udalosť 2" style="width:100%; border-radius:8px;">
-          <h3>Úspech na olympiáde</h3>
-          <p><strong>Dátum:</strong> 10. máj 2025</p>
-          <p>Naši študenti získali 1. miesto v krajskom kole Ekonomickej olympiády. Gratulujeme!</p>
-        </div>
-        <div class="card">
-          <img src="udalost3.jpg" alt="Udalosť 3" style="width:100%; border-radius:8px;">
-          <h3>Ilustračná udalosť 3</h3>
-          <p><strong>Dátum:</strong> 1. júl 2025</p>
-          <p>Táto udalosť je pridaná ako ilustračný príklad tretej karty.</p>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="two-columns">
-        <div class="contact-section">
-          <h2>Kontaktujte nás</h2>
-          <form id="contactForm" action="https://formspree.io/f/xkgbawok" method="POST" enctype="multipart/form-data">
-            <label for="name" class="sr-only">Meno</label>
-            <input type="text" id="name" name="name" placeholder="Meno" required>
-            
-            <label for="email" class="sr-only">Email</label>
-            <input type="email" id="email" name="email" placeholder="Email" required>
-            
-            <label for="message" class="sr-only">Správa</label>
-            <textarea id="message" name="message" placeholder="Vaša správa" rows="4" required></textarea>
-            
-            <input type="hidden" name="_subject" value="Nová správa z webu OA MF">
-            <input type="text" name="_gotcha" style="display:none">
-            
-            <button type="submit">Odoslať správu</button>
-          </form>
-        </div>
-
-        <div class="weather-container">
-          <div class="station-container">
-            <div class="station-header">
-              <!-- Opravené logo pre meteostanicu -->
-              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M9 3L5 6V20H19V6L15 3H9Z" stroke="#005c8a" stroke-width="2"/>
-                <path d="M9 8L12 11L15 8" stroke="#005c8a" stroke-width="2" stroke-linecap="round"/>
-                <circle cx="12" cy="14" r="2" fill="#f7941d"/>
-                <path d="M12 11V14" stroke="#005c8a" stroke-width="2" stroke-linecap="round"/>
-              </svg>
-              <h3 class="station-title">Školská meteostanica</h3>
-            </div>
-            <div class="station-data" id="station-data">
-              <div class="data-item">
-                <div class="data-value" id="station-temp">-- °C</div>
-                <div class="data-label">Teplota</div>
-              </div>
-              <div class="data-item">
-                <div class="data-value" id="station-humidity">-- %</div>
-                <div class="data-label">Vlhkosť</div>
-              </div>
-              <div class="data-item">
-                <div class="data-value" id="station-wind">-- km/h</div>
-                <div class="data-label">Vietor</div>
-              </div>
-              <div class="data-item">
-                <div class="data-value" id="station-pressure">-- hPa</div>
-                <div class="data-label">Tlak</div>
-              </div>
-              <div class="data-item">
-                <div class="data-value" id="station-rain">-- mm</div>
-                <div class="data-label">Zrážky</div>
-              </div>
-              <div class="data-item">
-                <div class="data-value" id="station-dewpoint">-- °C</div>
-                <div class="data-label">Rosný bod</div>
-              </div>
-            </div>
-            <p class="weather-update">
+<nav>
+<ul>
+<li><a class="active" href="#home">Domov</a></li>
+<li><a href="#about">O nás</a></li>
+<li><a href="https://www.edupage.org/" target="_blank">EduPage</a></li>
+<li><a href="#history">História</a></li>
+<li><a href="#applicants">Uchádzači</a></li>
+<li><a href="#study">Štúdium</a></li>
+<li><a href="#maturita">Maturita</a></li>
+<li><a href="#projects">Projekty</a></li>
+<li><a href="#docs">Dokumentácia</a></li>
+<li><a href="#contact">Kontakt</a></li>
+</ul>
+</nav>
+<div class="main">
+<header id="home">
+<img alt="Logo školy" src="oa.png"/>
+<h1>Obchodná akadémia Mareka Frauwirtha<br/>Banská Bystrica</h1>
+</header>
+<div class="banner">
+<img alt="Budova školy" src="baner.jpg"/>
+</div>
+<section id="about">
+<h2>Vitajte na našej škole</h2>
+<p>Obchodná akadémia Mareka Frauwirtha v Banskej Bystrici poskytuje kvalitné obchodné a ekonomické vzdelávanie už viac ako 100 rokov. Sme moderná škola s bohatou históriou, ktorá pripravuje študentov na úspešnú kariéru v oblasti obchodu, financií a podnikania.</p>
+<div class="highlights">
+<div class="card study-program">
+<h3>Študijný odbor 6317 M</h3>
+<p>Absolvent je pripravený pre výkon obchodno-podnikateľských funkcií vo výrobných podnikoch, v tuzemskom i medzinárodnom obchode, peňažníctve, cestovnom ruchu a ďalších službách v štátnej i verejnej správe.</p>
+<button onclick="this.nextElementSibling.style.display='block'; this.style.display='none';">Zobraziť viac</button>
+<div style="display:none;">
+<p>Odborné vzdelávanie umožňuje absolventovi získať odborné teoretické vedomosti, prostredníctvom ktorých je schopný samostatne vykonávať ekonomické činnosti súvisiace s obchodno-podnikateľskou praxou spojené so získavaním a spracúvaním informácií v oblasti výroby, zásobovania, odbytu, marketingu, personalistiky, vo vedení administratívy, účtovníctva a finančného hospodárenia.</p>
+</div>
+</div>
+<div class="card">
+<h3>Moderné zázemie</h3>
+<p>Škola disponuje počítačovými učebňami, jazykovými laboratóriami, študovňami a športovým areálom. Všetky učebne sú vybavené modernou technikou.</p>
+</div>
+<div class="card">
+<h3>Medzinárodná spolupráca</h3>
+<p>Účastníme sa programov Erasmus+ a máme partnerské školy v Nemecku, Rakúsku a Poľsku. Študenti majú možnosť zahraničných stáží.</p>
+</div>
+</div>
+</section>
+<section id="events">
+<h2>Aktuálne udalosti</h2>
+<div class="highlights">
+<div class="card">
+<img alt="Aktuálna udalosť" src="Image_1.jpg" style="width:100%; border-radius:8px;"/>
+</div>
+<div class="card">
+<img alt="Udalosť 2" src="udalost2.jpg" style="width:100%; border-radius:8px;"/>
+<h3>Úspech na olympiáde</h3>
+<p><strong>Dátum:</strong> 10. máj 2025</p>
+<p>Naši študenti získali 1. miesto v krajskom kole Ekonomickej olympiády. Gratulujeme!</p>
+</div>
+<div class="card">
+<img alt="Udalosť 3" src="udalost3.jpg" style="width:100%; border-radius:8px;"/>
+<h3>Ilustračná udalosť 3</h3>
+<p><strong>Dátum:</strong> 1. júl 2025</p>
+<p>Táto udalosť je pridaná ako ilustračný príklad tretej karty.</p>
+</div>
+</div>
+</section>
+<section>
+<div class="two-columns">
+<div class="contact-section">
+<h2>Kontaktujte nás</h2>
+<form action="https://formspree.io/f/xkgbawok" enctype="multipart/form-data" id="contactForm" method="POST">
+<label class="sr-only" for="name">Meno</label>
+<input id="name" name="name" placeholder="Meno" required="" type="text"/>
+<label class="sr-only" for="email">Email</label>
+<input id="email" name="email" placeholder="Email" required="" type="email"/>
+<label class="sr-only" for="message">Správa</label>
+<textarea id="message" name="message" placeholder="Vaša správa" required="" rows="4"></textarea>
+<input name="_subject" type="hidden" value="Nová správa z webu OA MF"/>
+<input name="_gotcha" style="display:none" type="text"/>
+<button type="submit">Odoslať správu</button>
+</form>
+</div>
+<div class="weather-container">
+<div class="station-container">
+<div class="station-header">
+<!-- Opravené logo pre meteostanicu -->
+<svg fill="none" height="40" viewbox="0 0 24 24" width="40" xmlns="http://www.w3.org/2000/svg">
+<path d="M9 3L5 6V20H19V6L15 3H9Z" stroke="#005c8a" stroke-width="2"></path>
+<path d="M9 8L12 11L15 8" stroke="#005c8a" stroke-linecap="round" stroke-width="2"></path>
+<circle cx="12" cy="14" fill="#f7941d" r="2"></circle>
+<path d="M12 11V14" stroke="#005c8a" stroke-linecap="round" stroke-width="2"></path>
+</svg>
+<h3 class="station-title">Školská meteostanica</h3>
+</div>
+<div class="station-data" id="station-data">
+<div class="data-item">
+<div class="data-value" id="station-temp">-- °C</div>
+<div class="data-label">Teplota</div>
+</div>
+<div class="data-item">
+<div class="data-value" id="station-humidity">-- %</div>
+<div class="data-label">Vlhkosť</div>
+</div>
+<div class="data-item">
+<div class="data-value" id="station-wind">-- km/h</div>
+<div class="data-label">Vietor</div>
+</div>
+<div class="data-item">
+<div class="data-value" id="station-pressure">-- hPa</div>
+<div class="data-label">Tlak</div>
+</div>
+<div class="data-item">
+<div class="data-value" id="station-rain">-- mm</div>
+<div class="data-label">Zrážky</div>
+</div>
+<div class="data-item">
+<div class="data-value" id="station-dewpoint">-- °C</div>
+<div class="data-label">Rosný bod</div>
+</div>
+</div>
+<p class="weather-update">
               Dáta z meteostanice OA MF | 
               Aktualizované: <span id="station-update-time">--:--</span>
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <footer>
-      <p>© 2024 Obchodná akadémia Mareka Frauwirtha | Vytvorené s ❤️ študentmi školy</p>
-      <p>Adresa: Tajovského 25, 974 01 Banská Bystrica | Tel.: +421 48 414 51 11</p>
-    </footer>
-  </div>
-
-  <script>
+</p>
+</div>
+</div>
+</div>
+</section>
+<footer>
+<p>© 2024 Obchodná akadémia Mareka Frauwirtha | Vytvorené s ❤️ študentmi školy</p>
+<p>Adresa: Tajovského 25, 974 01 Banská Bystrica | Tel.: +421 48 414 51 11</p>
+</footer>
+</div>
+<script>
     // Wunderground API konfigurácia
     const WU_API_KEY = '4c31d72bd2aa463fb1d72bd2aa463fa4';
     const WU_STATION_ID = 'IBANSK55';
@@ -529,5 +518,23 @@
       setInterval(nacitajMeteostanicu, 300000);
     });
   </script>
+
+<div class="event-card">
+<h3>Udalosť: Športový deň</h3>
+<img alt="Športový deň náhľad" src="https://github.com/oamfbb/oamfbb.github.io/raw/Sportovy_den/images/sportovy_den/1.jpg" style="width:100%;max-width:600px;"/>
+<div class="gallery">
+<h4>Galéria:</h4>
+<div style="display:flex;flex-wrap:wrap;gap:10px;">
+<img alt="Obrázok 2" src="https://github.com/oamfbb/oamfbb.github.io/raw/Sportovy_den/images/sportovy_den/2.jpg" style="width:150px;height:auto;"/>
+<img alt="Obrázok 3" src="https://github.com/oamfbb/oamfbb.github.io/raw/Sportovy_den/images/sportovy_den/3.jpg" style="width:150px;height:auto;"/>
+<img alt="Obrázok 4" src="https://github.com/oamfbb/oamfbb.github.io/raw/Sportovy_den/images/sportovy_den/4.jpg" style="width:150px;height:auto;"/>
+<img alt="Obrázok 5" src="https://github.com/oamfbb/oamfbb.github.io/raw/Sportovy_den/images/sportovy_den/5.jpg" style="width:150px;height:auto;"/>
+<img alt="Obrázok 6" src="https://github.com/oamfbb/oamfbb.github.io/raw/Sportovy_den/images/sportovy_den/6.jpg" style="width:150px;height:auto;"/>
+<img alt="Obrázok 7" src="https://github.com/oamfbb/oamfbb.github.io/raw/Sportovy_den/images/sportovy_den/7.jpg" style="width:150px;height:auto;"/>
+<img alt="Obrázok 8" src="https://github.com/oamfbb/oamfbb.github.io/raw/Sportovy_den/images/sportovy_den/8.jpg" style="width:150px;height:auto;"/>
+<img alt="Obrázok 9" src="https://github.com/oamfbb/oamfbb.github.io/raw/Sportovy_den/images/sportovy_den/9.jpg" style="width:150px;height:auto;"/>
+</div>
+</div>
+</div>
 </body>
 </html>
