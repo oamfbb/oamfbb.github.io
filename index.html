@@ -1,6 +1,4 @@
-
 <!DOCTYPE html>
-
 <html lang="sk">
 <head>
 <meta charset="utf-8"/>
@@ -258,6 +256,63 @@
       margin-top: auto;
     }
 
+    /* Štýly pre galériu */
+    .gallery-card {
+      cursor: pointer;
+      position: relative;
+    }
+    
+    .gallery-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.9);
+      z-index: 1000;
+      text-align: center;
+    }
+    
+    .gallery-modal-content {
+      max-width: 90%;
+      max-height: 90%;
+      margin: auto;
+      margin-top: 5%;
+    }
+    
+    .gallery-modal img {
+      max-height: 80vh;
+      border: 3px solid white;
+      border-radius: 5px;
+    }
+    
+    .gallery-close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      color: white;
+      font-size: 35px;
+      cursor: pointer;
+    }
+    
+    .gallery-nav {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+    }
+    
+    .gallery-prev, .gallery-next {
+      color: white;
+      font-size: 30px;
+      cursor: pointer;
+      padding: 20px;
+      background: rgba(0,0,0,0.3);
+    }
+
     @media (max-width: 768px) {
       body {
         flex-direction: column;
@@ -290,12 +345,20 @@
         height: 300px;
       }
 
+      .highlights {
+        grid-template-columns: 1fr;
+      }
+
       .two-columns {
-      grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: 1fr;
       }
       
       .station-data {
-      grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .gallery-modal-content {
+        margin-top: 15%;
       }
     }
 
@@ -363,11 +426,11 @@
 <div class="card">
 <img alt="Aktuálna udalosť" src="Image_1.jpg" style="width:100%; border-radius:8px;"/>
 </div>
-<div class="card">
-<img alt="Udalosť 2" src="udalost2.jpg" style="width:100%; border-radius:8px;"/>
-<h3>Úspech na olympiáde</h3>
-<p><strong>Dátum:</strong> 10. máj 2025</p>
-<p>Naši študenti získali 1. miesto v krajskom kole Ekonomickej olympiády. Gratulujeme!</p>
+<div class="card gallery-card" onclick="otvorGaleriu()">
+<img alt="Športový deň" src="https://raw.githubusercontent.com/oamfbb/oamfbb.github.io/Sportovy_den/images/sportovy_den/1.jpg" style="width:100%; border-radius:8px;"/>
+<h3>Športový deň</h3>
+<p><strong>Dátum:</strong> 15. jún 2025</p>
+<p>Pozrite si fotky z nášho športového dňa. Kliknite na kartu pre zobrazenie galérie.</p>
 </div>
 <div class="card">
 <img alt="Udalosť 3" src="udalost3.jpg" style="width:100%; border-radius:8px;"/>
@@ -396,7 +459,6 @@
 <div class="weather-container">
 <div class="station-container">
 <div class="station-header">
-<!-- Opravené logo pre meteostanicu -->
 <svg fill="none" height="40" viewbox="0 0 24 24" width="40" xmlns="http://www.w3.org/2000/svg">
 <path d="M9 3L5 6V20H19V6L15 3H9Z" stroke="#005c8a" stroke-width="2"></path>
 <path d="M9 8L12 11L15 8" stroke="#005c8a" stroke-linecap="round" stroke-width="2"></path>
@@ -444,10 +506,59 @@
 <p>Adresa: Tajovského 25, 974 01 Banská Bystrica | Tel.: +421 48 414 51 11</p>
 </footer>
 </div>
+
+<!-- Galéria Modal -->
+<div id="galleryModal" class="gallery-modal">
+  <span class="gallery-close" onclick="zatvorGaleriu()">&times;</span>
+  <div class="gallery-modal-content">
+    <img id="galleryImage" src="">
+  </div>
+  <div class="gallery-nav">
+    <span class="gallery-prev" onclick="plusSlidy(-1)">&#10094;</span>
+    <span class="gallery-next" onclick="plusSlidy(1)">&#10095;</span>
+  </div>
+</div>
+
 <script>
     // Wunderground API konfigurácia
     const WU_API_KEY = '4c31d72bd2aa463fb1d72bd2aa463fa4';
     const WU_STATION_ID = 'IBANSK55';
+
+    // Galéria - zoznam obrázkov
+    const galleryImages = [];
+    for (let i = 1; i <= 9; i++) {
+      galleryImages.push(`https://raw.githubusercontent.com/oamfbb/oamfbb.github.io/Sportovy_den/images/sportovy_den/${i}.jpg`);
+    }
+    let currentImageIndex = 0;
+
+    // Otvorenie galérie
+    function otvorGaleriu() {
+      document.getElementById("galleryModal").style.display = "block";
+      document.getElementById("galleryImage").src = galleryImages[currentImageIndex];
+    }
+
+    // Zatvorenie galérie
+    function zatvorGaleriu() {
+      document.getElementById("galleryModal").style.display = "none";
+    }
+
+    // Prechádzanie obrázkov
+    function plusSlidy(n) {
+      currentImageIndex += n;
+      if (currentImageIndex >= galleryImages.length) currentImageIndex = 0;
+      if (currentImageIndex < 0) currentImageIndex = galleryImages.length - 1;
+      document.getElementById("galleryImage").src = galleryImages[currentImageIndex];
+    }
+
+    // Ovládanie galérie klávesnicou
+    document.addEventListener("keydown", function(event) {
+      const modal = document.getElementById("galleryModal");
+      if (modal.style.display === "block") {
+        if (event.key === "Escape") zatvorGaleriu();
+        if (event.key === "ArrowLeft") plusSlidy(-1);
+        if (event.key === "ArrowRight") plusSlidy(1);
+      }
+    });
 
     async function nacitajMeteostanicu() {
       // Zobraz načítavanie
@@ -518,22 +629,5 @@
       setInterval(nacitajMeteostanicu, 300000);
     });
   </script>
-<div class="event-card">
-<h3>Udalosť: Športový deň</h3>
-
-<div class="gallery">
-<h4>Galéria:</h4>
-<div style="display:flex;flex-wrap:wrap;gap:10px;">
-
-
-
-
-
-
-
-
-</div>
-</div>
-</div>
 </body>
 </html>
