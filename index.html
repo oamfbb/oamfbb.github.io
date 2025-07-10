@@ -38,6 +38,7 @@
       position: sticky;
       top: 0;
       height: 100vh;
+      z-index: 20;
     }
 
     nav ul {
@@ -362,6 +363,20 @@
       }
     }
 
+    @media (max-width: 480px) {
+      header h1 {
+        font-size: 1.5rem;
+      }
+      
+      .banner {
+        height: 200px;
+      }
+      
+      .station-data {
+        grid-template-columns: 1fr;
+      }
+    }
+
     .sr-only {
       position: absolute;
       width: 1px;
@@ -424,19 +439,22 @@
 <h2>Aktuálne udalosti</h2>
 <div class="highlights">
 <div class="card">
-<img alt="Aktuálna udalosť" src="Image_1.jpg" style="width:100%; border-radius:8px;"/>
+<img alt="Deň otvorených dverí" src="https://via.placeholder.com/600x400/005c8a/ffffff?text=Deň+otvorených+dverí" style="width:100%; border-radius:8px;"/>
+<h3>Deň otvorených dverí</h3>
+<p><strong>Dátum:</strong> 25. jún 2025</p>
+<p>Príďte sa pozrieť do našej školy a spoznajte naše prostredie.</p>
 </div>
-<div class="card gallery-card" onclick="otvorGaleriu()">
+<div class="card gallery-card" onclick="otvorGaleriu(0)">
 <img alt="Športový deň" src="https://raw.githubusercontent.com/oamfbb/oamfbb.github.io/Sportovy_den/images/sportovy_den/1.jpg" style="width:100%; border-radius:8px;"/>
 <h3>Športový deň</h3>
 <p><strong>Dátum:</strong> 15. jún 2025</p>
 <p>Pozrite si fotky z nášho športového dňa. Kliknite na kartu pre zobrazenie galérie.</p>
 </div>
 <div class="card">
-<img alt="Udalosť 3" src="udalost3.jpg" style="width:100%; border-radius:8px;"/>
-<h3>Ilustračná udalosť 3</h3>
+<img alt="Stužková slávnosť" src="https://via.placeholder.com/600x400/7bb241/ffffff?text=Stužková+slávnosť" style="width:100%; border-radius:8px;"/>
+<h3>Stužková slávnosť</h3>
 <p><strong>Dátum:</strong> 1. júl 2025</p>
-<p>Táto udalosť je pridaná ako ilustračný príklad tretej karty.</p>
+<p>Slávnostný prechod študentov do posledného ročníka štúdia.</p>
 </div>
 </div>
 </section>
@@ -511,7 +529,7 @@
 <div id="galleryModal" class="gallery-modal">
   <span class="gallery-close" onclick="zatvorGaleriu()">&times;</span>
   <div class="gallery-modal-content">
-    <img id="galleryImage" src="">
+    <img id="galleryImage" src="" alt="Galéria - Športový deň">
   </div>
   <div class="gallery-nav">
     <span class="gallery-prev" onclick="plusSlidy(-1)">&#10094;</span>
@@ -525,14 +543,22 @@
     const WU_STATION_ID = 'IBANSK55';
 
     // Galéria - zoznam obrázkov
-    const galleryImages = [];
-    for (let i = 1; i <= 9; i++) {
-      galleryImages.push(`https://raw.githubusercontent.com/oamfbb/oamfbb.github.io/Sportovy_den/images/sportovy_den/${i}.jpg`);
-    }
+    const galleryImages = [
+      "https://raw.githubusercontent.com/oamfbb/oamfbb.github.io/Sportovy_den/images/sportovy_den/1.jpg",
+      "https://raw.githubusercontent.com/oamfbb/oamfbb.github.io/Sportovy_den/images/sportovy_den/2.jpg",
+      "https://raw.githubusercontent.com/oamfbb/oamfbb.github.io/Sportovy_den/images/sportovy_den/3.jpg",
+      "https://raw.githubusercontent.com/oamfbb/oamfbb.github.io/Sportovy_den/images/sportovy_den/4.jpg",
+      "https://raw.githubusercontent.com/oamfbb/oamfbb.github.io/Sportovy_den/images/sportovy_den/5.jpg",
+      "https://raw.githubusercontent.com/oamfbb/oamfbb.github.io/Sportovy_den/images/sportovy_den/6.jpg",
+      "https://raw.githubusercontent.com/oamfbb/oamfbb.github.io/Sportovy_den/images/sportovy_den/7.jpg",
+      "https://raw.githubusercontent.com/oamfbb/oamfbb.github.io/Sportovy_den/images/sportovy_den/8.jpg",
+      "https://raw.githubusercontent.com/oamfbb/oamfbb.github.io/Sportovy_den/images/sportovy_den/9.jpg"
+    ];
     let currentImageIndex = 0;
 
-    // Otvorenie galérie
-    function otvorGaleriu() {
+    // Otvorenie galérie s konkrétnym obrázkom
+    function otvorGaleriu(index) {
+      currentImageIndex = index;
       document.getElementById("galleryModal").style.display = "block";
       document.getElementById("galleryImage").src = galleryImages[currentImageIndex];
     }
@@ -544,9 +570,7 @@
 
     // Prechádzanie obrázkov
     function plusSlidy(n) {
-      currentImageIndex += n;
-      if (currentImageIndex >= galleryImages.length) currentImageIndex = 0;
-      if (currentImageIndex < 0) currentImageIndex = galleryImages.length - 1;
+      currentImageIndex = (currentImageIndex + n + galleryImages.length) % galleryImages.length;
       document.getElementById("galleryImage").src = galleryImages[currentImageIndex];
     }
 
@@ -560,6 +584,64 @@
       }
     });
 
+    // Navigácia - plynulé scrollovanie a aktualizácia aktívneho odkazu
+    document.querySelectorAll('nav a').forEach(link => {
+      link.addEventListener('click', function(e) {
+        const target = this.getAttribute('href');
+        
+        // Externé odkazy otvoríme normálne
+        if (target.startsWith('http')) return true;
+        
+        e.preventDefault();
+        
+        // Aktualizácia aktívnej položky
+        document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+        this.classList.add('active');
+        
+        // Plynulé scrollovanie
+        document.querySelector(target).scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      });
+    });
+
+    // Automatická aktualizácia aktívneho odkazu pri scrollovaní
+    window.addEventListener('scroll', () => {
+      const sections = document.querySelectorAll('section');
+      const navLinks = document.querySelectorAll('nav a');
+      
+      let currentSection = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        if (pageYOffset >= sectionTop - 150) {
+          currentSection = section.getAttribute('id');
+        }
+      });
+      
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${currentSection}`) {
+          link.classList.add('active');
+        }
+      });
+    });
+
+    // Kontaktný formulár
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Ďakujeme za správu! Ozveme sa vám čoskoro.');
+      this.reset();
+    });
+
+    // Načítaj meteostanicu pri načítaní stránky
+    window.addEventListener('DOMContentLoaded', () => {
+      // Meteostanica kód zostáva nezmenený
+      nacitajMeteostanicu();
+      setInterval(nacitajMeteostanicu, 300000);
+    });
+
+    // PÔVODNÝ KÓD METEOSTANICE (nezmenený)
     async function nacitajMeteostanicu() {
       // Zobraz načítavanie
       document.querySelectorAll('#station-data .data-value').forEach(el => {
@@ -600,34 +682,6 @@
         `;
       }
     }
-
-    // Navigácia
-    document.querySelectorAll('nav a').forEach(link => {
-      link.addEventListener('click', function(e) {
-        if (!this.getAttribute('href').startsWith('http')) {
-          e.preventDefault();
-          document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
-          this.classList.add('active');
-          document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-          });
-        }
-      });
-    });
-
-    // Kontaktný formulár
-    document.getElementById('contactForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      alert('Ďakujeme za správu! Ozveme sa vám čoskoro.');
-      this.reset();
-    });
-
-    // Načítaj meteostanicu pri načítaní stránky
-    window.addEventListener('DOMContentLoaded', () => {
-      nacitajMeteostanicu();
-      // Aktualizácia meteostanice každých 5 minút (300000 ms)
-      setInterval(nacitajMeteostanicu, 300000);
-    });
   </script>
 </body>
 </html>
