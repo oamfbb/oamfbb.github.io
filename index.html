@@ -750,14 +750,22 @@
       }
     });
 
-    // Navigácia - plynulé scrollovanie a aktualizácia aktívneho odkazu
- document.querySelectorAll('nav a:not(.external-link)').forEach(link => {
+ 
+document.querySelectorAll('nav a').forEach(link => {
   link.addEventListener('click', function(e) {
-    const target = this.getAttribute('href');
+    const target = this.getAttribute('href'); 
+    if (target.startsWith('http') || this.classList.contains('external-link')) {
+      return true; // Štandardné správanie pre tieto odkazy
+    }
+    e.preventDefault();
     
-    // Externé odkazy s triedou external-link sa správajú štandardne
-    if (target.startsWith('http')) return true;
-    // ... (zvyšok kódu)
+    document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+    this.classList.add('active');
+    
+    document.querySelector(target).scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    });
   });
 });
 
