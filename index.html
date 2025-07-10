@@ -314,6 +314,125 @@
       background: rgba(0,0,0,0.3);
     }
 
+    /* MODAL KONTAKTNÝCH ÚDAJOV */
+    .modal-kontakt {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-kontakt-obsah {
+      background: white;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 600px;
+      padding: 2rem;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      position: relative;
+      animation: modalOpen 0.3s;
+    }
+
+    @keyframes modalOpen {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .modal-kontakt-zatvorit {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      font-size: 1.5rem;
+      color: var(--blue-dark);
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .modal-kontakt-zatvorit:hover {
+      color: var(--orange);
+    }
+
+    .modal-kontakt h2 {
+      color: var(--blue-dark);
+      margin-bottom: 1.5rem;
+      border-bottom: 2px solid var(--orange);
+      padding-bottom: 0.5rem;
+    }
+
+    .kontakt-udaje {
+      margin-bottom: 1.5rem;
+    }
+
+    .kontakt-udaje p {
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+    }
+
+    .kontakt-udaje i {
+      margin-right: 10px;
+      color: var(--orange);
+      width: 20px;
+      text-align: center;
+    }
+
+    .kontakt-udaje a {
+      color: var(--blue-dark);
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .kontakt-udaje a:hover {
+      color: var(--orange);
+      text-decoration: underline;
+    }
+
+    .socialne-siete {
+      display: flex;
+      gap: 1rem;
+      margin: 1.5rem 0;
+      flex-wrap: wrap;
+    }
+
+    .socialne-siete a {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.5rem 1rem;
+      background: var(--blue-dark);
+      color: white;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .socialne-siete a:hover {
+      background: var(--orange);
+      transform: translateY(-2px);
+    }
+
+    .socialne-siete i {
+      margin-right: 8px;
+    }
+
+    .mapa-container {
+      margin-top: 1.5rem;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .mapa-container iframe {
+      width: 100%;
+      height: 300px;
+      border: none;
+    }
+
     @media (max-width: 768px) {
       body {
         flex-direction: column;
@@ -361,6 +480,14 @@
       .gallery-modal-content {
         margin-top: 15%;
       }
+
+      .modal-kontakt-obsah {
+        padding: 1.5rem;
+      }
+
+      .socialne-siete {
+        flex-direction: column;
+      }
     }
 
     @media (max-width: 480px) {
@@ -374,6 +501,11 @@
       
       .station-data {
         grid-template-columns: 1fr;
+      }
+
+      .modal-kontakt-obsah {
+        width: 95%;
+        padding: 1rem;
       }
     }
 
@@ -389,6 +521,8 @@
       border-width: 0;
     }
   </style>
+  <!-- Font Awesome pre ikony -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 <nav>
@@ -402,7 +536,7 @@
 <li><a href="#maturita">Maturita</a></li>
 <li><a href="#projects">Projekty</a></li>
 <li><a href="#docs">Dokumentácia</a></li>
-<li><a href="#contact">Kontakt</a></li>
+<li><a href="#contact" id="kontakt-link">Kontakt</a></li>
 </ul>
 </nav>
 <div class="main">
@@ -534,6 +668,31 @@
   </div>
 </div>
 
+<!-- Kontaktný Modal -->
+<div id="kontaktModal" class="modal-kontakt">
+  <div class="modal-kontakt-obsah">
+    <span class="modal-kontakt-zatvorit" onclick="zatvorKontakt()">&times;</span>
+    <h2><i class="fas fa-envelope"></i> Kontaktné údaje</h2>
+    
+    <div class="kontakt-udaje">
+      <p><i class="fas fa-map-marker-alt"></i> <strong>Adresa:</strong> Tajovského 25, 974 01 Banská Bystrica</p>
+      <p><i class="fas fa-phone"></i> <strong>Telefón:</strong> +421 48 414 51 11</p>
+      <p><i class="fas fa-envelope"></i> <strong>E-mail:</strong> <a href="mailto:sekretariat@oamf.sk">sekretariat@oamf.sk</a></p>
+      <p><i class="fas fa-clock"></i> <strong>Úradné hodiny:</strong> Pondelok - Piatok: 7:30 - 15:00</p>
+    </div>
+    
+    <div class="socialne-siete">
+      <a href="https://www.facebook.com/oamfbb" target="_blank"><i class="fab fa-facebook-f"></i> Facebook</a>
+      <a href="https://www.youtube.com/user/oamfbb" target="_blank"><i class="fab fa-youtube"></i> YouTube</a>
+      <a href="https://www.oamf.sk" target="_blank"><i class="fas fa-globe"></i> Web školy</a>
+    </div>
+    
+    <div class="mapa-container">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2638.234215335614!2d19.123456789012345!3d48.73612345678901!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47153f1d3d1e1e1e%3A0x1e1e1e1e1e1e1e1e!2sObchodn%C3%A1%20akad%C3%A9mia%20Mareka%20Frauwirtha!5e0!3m2!1ssk!2ssk!4v1621234567890!5m2!1ssk!2ssk" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+  </div>
+</div>
+
 <script>
     // Wunderground API konfigurácia
     const WU_API_KEY = '4c31d72bd2aa463fb1d72bd2aa463fa4';
@@ -571,6 +730,15 @@
       document.getElementById("galleryImage").src = galleryImages[currentImageIndex];
     }
 
+    // Kontaktný modal
+    function otvorKontakt() {
+      document.getElementById("kontaktModal").style.display = "flex";
+    }
+    
+    function zatvorKontakt() {
+      document.getElementById("kontaktModal").style.display = "none";
+    }
+
     // Ovládanie galérie klávesnicou
     document.addEventListener("keydown", function(event) {
       const modal = document.getElementById("galleryModal");
@@ -578,6 +746,11 @@
         if (event.key === "Escape") zatvorGaleriu();
         if (event.key === "ArrowLeft") plusSlidy(-1);
         if (event.key === "ArrowRight") plusSlidy(1);
+      }
+      
+      const kontaktModal = document.getElementById("kontaktModal");
+      if (kontaktModal.style.display === "flex" && event.key === "Escape") {
+        zatvorKontakt();
       }
     });
 
@@ -588,6 +761,13 @@
         
         // Externé odkazy otvoríme normálne
         if (target.startsWith('http')) return true;
+        
+        // Špeciálna logika pre kontakt
+        if (target === '#contact') {
+          e.preventDefault();
+          otvorKontakt();
+          return;
+        }
         
         e.preventDefault();
         
@@ -633,9 +813,14 @@
 
     // Načítaj meteostanicu pri načítaní stránky
     window.addEventListener('DOMContentLoaded', () => {
-      // Meteostanica kód zostáva nezmenený
       nacitajMeteostanicu();
       setInterval(nacitajMeteostanicu, 300000);
+      
+      // Pridanie event listenera pre kontaktný link
+      document.getElementById('kontakt-link').addEventListener('click', function(e) {
+        e.preventDefault();
+        otvorKontakt();
+      });
     });
 
     // PÔVODNÝ KÓD METEOSTANICE (nezmenený)
