@@ -529,7 +529,7 @@
 <ul>
 <li><a class="active" href="#home">Domov</a></li>
 <li><a href="#about">O nás</a></li>
-<li><a href="https://www.edupa<li><a href="https://oatabb.edupage.org/" target="_blank">EduPage</a></li>ge.org/" target="_blank">EduPage</a></li>
+<li><a href="https://oatabb.edupage.org/" target="_blank" class="external-link">EduPage</a></li>
 <li><a href="#history">História</a></li>
 <li><a href="#applicants">Uchádzači</a></li>
 <li><a href="#study">Štúdium</a></li>
@@ -751,33 +751,15 @@
     });
 
     // Navigácia - plynulé scrollovanie a aktualizácia aktívneho odkazu
-    document.querySelectorAll('nav a').forEach(link => {
-      link.addEventListener('click', function(e) {
-        const target = this.getAttribute('href');
-        
-        // Externé odkazy otvoríme normálne
-        if (target.startsWith('http')) return true;
-        
-        // Špeciálna logika pre kontakt
-        if (target === '#contact') {
-          e.preventDefault();
-          otvorKontakt();
-          return;
-        }
-        
-        e.preventDefault();
-        
-        // Aktualizácia aktívnej položky
-        document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
-        this.classList.add('active');
-        
-        // Plynulé scrollovanie
-        document.querySelector(target).scrollIntoView({
-          behavior: 'smooth',
-          block: 'start'
-        });
-      });
-    });
+ document.querySelectorAll('nav a:not(.external-link)').forEach(link => {
+  link.addEventListener('click', function(e) {
+    const target = this.getAttribute('href');
+    
+    // Externé odkazy s triedou external-link sa správajú štandardne
+    if (target.startsWith('http')) return true;
+    // ... (zvyšok kódu)
+  });
+});
 
     // Automatická aktualizácia aktívneho odkazu pri scrollovaní
     window.addEventListener('scroll', () => {
