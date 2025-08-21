@@ -5,6 +5,7 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Obchodná akadémia Mareka Frauwirtha</title>
 <link href="favicon.ico" rel="icon" type="image/x-icon"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 <style>
     :root {
       --blue-dark: #005c8a;
@@ -585,8 +586,6 @@
       border-width: 0;
     }
   </style>
-  <!-- Font Awesome pre ikony -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 <nav>
@@ -615,14 +614,12 @@
 <!-- Virtuálna prehliadka - banner -->
 <div class="virtual-tour-banner">
   <div class="tour-banner-content">
-    <h3><i class="fas fa-360-degrees"></i> Virtuálna prehliadka školy</h3>
+    <h3><i class="fas fa-street-view"></i> Virtuálna prehliadka školy</h3>
     <p>Preskúmajte naše priestory: vstup, jedáleň a aulu</p>
     <div class="tour-iframe-container">
       <iframe 
-        src="https://maps.app.goo.gl/gwJbyQwg6emU8j3RA" 
-        loading="lazy"
-        allowfullscreen
-      ></iframe>
+        src="https://www.google.com/maps/embed?pb=!4v1755762238393!6m8!1m7!1sCAoSF0NJSE0wb2dLRUlDQWdJQ25rb3VpdUFF!2m2!1d48.73965802209055!2d19.12549978786721!3f205.13!4f-13.980000000000004!5f1.3173716720535973" 
+        loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
     <button class="tour-btn" onclick="zobrazVsetkyPrehliadky()">
       <i class="fas fa-expand"></i> Zobraziť všetky priestory
@@ -652,6 +649,7 @@
 </div>
 </div>
 </section>
+
 <section id="events">
 <h2>Aktuálne udalosti</h2>
 <div class="highlights">
@@ -681,7 +679,7 @@
     <div class="card">
       <h3><i class="fas fa-desktop"></i> PC učebňa</h3>
       <div class="tour-iframe-container">
-        <iframe src="https://maps.app.goo.gl/TVakuR2ejXd9wsns7" loading="lazy" allowfullscreen></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!4v1755762320523!6m8!1m7!1sCAoSLEFGMVFpcE9nYmtlZllKcng3QUt2Ujdxb0U1SkhjZHZqOTVzY3dlbXVZNXo4!2m2!1d48.73968781327845!2d19.12542633058277!3f153.95!4f-9.14!5f0.5970117501821992" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
     </div>
     
@@ -689,7 +687,7 @@
     <div class="card">
       <h3><i class="fas fa-chalkboard"></i> Štandardná trieda</h3>
       <div class="tour-iframe-container">
-        <iframe src="https://maps.app.goo.gl/DhULWrdK6eC4fceq7" loading="lazy" allowfullscreen></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!4v1755762355797!6m8!1m7!1sCAoSLEFGMVFpcE13TG9DRVpXdzBXSVU3RmNqWlk1aHl6VFpDdDVvT0o1SWpOSF9i!2m2!1d48.73964183968435!2d19.12545110095165!3f254.14!4f-13.86!5f0.5970117501821992" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
     </div>
   </div>
@@ -697,15 +695,15 @@
 
 <section>
 <div class="two-columns">
-<div class="contact-section">
+<div class="contact-section" id="contact">
 <h2>Kontaktujte nás</h2>
 <form action="https://formspree.io/f/xkgbawok" enctype="multipart/form-data" id="contactForm" method="POST">
 <label class="sr-only" for="name">Meno</label>
-<input id="name" name="name" placeholder="Meno" required="" type="text"/>
+<input id="name" name="name" placeholder="Meno" required type="text"/>
 <label class="sr-only" for="email">Email</label>
-<input id="email" name="email" placeholder="Email" required="" type="email"/>
+<input id="email" name="email" placeholder="Email" required type="email"/>
 <label class="sr-only" for="message">Správa</label>
-<textarea id="message" name="message" placeholder="Vaša správa" required="" rows="4"></textarea>
+<textarea id="message" name="message" placeholder="Vaša správa" required rows="4"></textarea>
 <input name="_subject" type="hidden" value="Nová správa z webu OA MF"/>
 <input name="_gotcha" style="display:none" type="text"/>
 <button type="submit">Odoslať správu</button>
@@ -714,7 +712,7 @@
 <div class="weather-container">
 <div class="station-container">
 <div class="station-header">
-<svg fill="none" height="40" viewbox="0 0 24 24" width="40" xmlns="http://www.w3.org/2000/svg">
+<svg fill="none" height="40" viewBox="0 0 24 24" width="40" xmlns="http://www.w3.org/2000/svg">
 <path d="M9 3L5 6V20H19V6L15 3H9Z" stroke="#005c8a" stroke-width="2"></path>
 <path d="M9 8L12 11L15 8" stroke="#005c8a" stroke-linecap="round" stroke-width="2"></path>
 <circle cx="12" cy="14" fill="#f7941d" r="2"></circle>
@@ -795,7 +793,7 @@
 </div>
 
 <script>
-    // Wunderground API konfigurácia
+    // Wunderground API konfigurácia (použité z pôvodného súboru)
     const WU_API_KEY = '4c31d72bd2aa463fb1d72bd2aa463fa4';
     const WU_STATION_ID = 'IBANSK55';
 
@@ -844,10 +842,7 @@
     function zobrazVsetkyPrehliadky() {
       const sekcia = document.getElementById('vsetky-prehliadky');
       sekcia.style.display = sekcia.style.display === 'none' ? 'block' : 'none';
-      window.scrollTo({
-        top: sekcia.offsetTop,
-        behavior: 'smooth'
-      });
+      window.scrollTo({ top: sekcia.offsetTop, behavior: 'smooth' });
     }
 
     // Ovládanie galérie klávesnicou
@@ -858,7 +853,6 @@
         if (event.key === "ArrowLeft") plusSlidy(-1);
         if (event.key === "ArrowRight") plusSlidy(1);
       }
-      
       const kontaktModal = document.getElementById("kontaktModal");
       if (kontaktModal.style.display === "flex" && event.key === "Escape") {
         zatvorKontakt();
@@ -869,23 +863,13 @@
     document.querySelectorAll('nav a').forEach(link => {
       link.addEventListener('click', function(e) {
         const target = this.getAttribute('href');
-        
-        // Ignorovať externé odkazy a odkazy s triedou external-link
         if (target.startsWith('http') || this.classList.contains('external-link')) {
-          return true; // Štandardné správanie pre tieto odkazy
+          return true;
         }
-        
         e.preventDefault();
-        
-        // Aktualizácia aktívnej položky
         document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
         this.classList.add('active');
-        
-        // Plynulé scrollovanie
-        document.querySelector(target).scrollIntoView({
-          behavior: 'smooth',
-          block: 'start'
-        });
+        document.querySelector(target).scrollIntoView({ behavior: 'smooth', block: 'start' });
       });
     });
 
@@ -893,7 +877,6 @@
     window.addEventListener('scroll', () => {
       const sections = document.querySelectorAll('section');
       const navLinks = document.querySelectorAll('nav a');
-      
       let currentSection = '';
       sections.forEach(section => {
         const sectionTop = section.offsetTop;
@@ -901,7 +884,6 @@
           currentSection = section.getAttribute('id');
         }
       });
-      
       navLinks.forEach(link => {
         link.classList.remove('active');
         if (link.getAttribute('href') === `#${currentSection}`) {
@@ -910,19 +892,13 @@
       });
     });
 
-    // Kontaktný formulár
-    document.getElementById('contactForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      alert('Ďakujeme za správu! Ozveme sa vám čoskoro.');
-      this.reset();
-    });
+    // ZACHOVANÉ: Formspree odosielanie bez prepisovania JS (pre plne funkčné odoslanie)
+    // ŽIADNE e.preventDefault(); – nechávame natívne odoslanie formulára na Formspree
 
     // Načítaj meteostanicu pri načítaní stránky
     window.addEventListener('DOMContentLoaded', () => {
       nacitajMeteostanicu();
       setInterval(nacitajMeteostanicu, 300000);
-      
-      // Pridanie event listenera pre kontaktný link
       document.getElementById('kontakt-link').addEventListener('click', function(e) {
         e.preventDefault();
         otvorKontakt();
@@ -931,33 +907,22 @@
 
     // Funkcia pre načítanie dát z meteostanice
     async function nacitajMeteostanicu() {
-      // Zobraz načítavanie
-      document.querySelectorAll('#station-data .data-value').forEach(el => {
-        el.textContent = '...';
-      });
-      
+      document.querySelectorAll('#station-data .data-value').forEach(el => { el.textContent = '...'; });
       try {
         const response = await fetch(
           `https://api.weather.com/v2/pws/observations/current?stationId=${WU_STATION_ID}&format=json&units=m&apiKey=${WU_API_KEY}`
         );
-        
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        
+        if (!response.ok) { throw new Error(`HTTP error! status: ${response.status}`); }
         const data = await response.json();
-        const observation = data.observations[0];
-        
-        // Aktualizácia údajov
+        const observation = data.observations && data.observations[0];
+        if (!observation) throw new Error('Žiadne dáta z meteostanice');
         document.getElementById('station-temp').textContent = `${observation.metric.temp} °C`;
         document.getElementById('station-humidity').textContent = `${observation.humidity} %`;
         document.getElementById('station-wind').textContent = `${observation.metric.windSpeed} km/h`;
         document.getElementById('station-pressure').textContent = `${observation.metric.pressure} hPa`;
         document.getElementById('station-rain').textContent = `${observation.metric.precipTotal} mm`;
         document.getElementById('station-dewpoint').textContent = `${observation.metric.dewpt} °C`;
-        document.getElementById('station-update-time').textContent = 
-          new Date(observation.epoch * 1000).toLocaleTimeString('sk-SK');
-          
+        document.getElementById('station-update-time').textContent = new Date(observation.epoch * 1000).toLocaleTimeString('sk-SK');
       } catch (error) {
         console.error("Chyba pri načítaní dát z meteostanice:", error);
         const stationData = document.getElementById('station-data');
