@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Obchodná akadémia Mareka Frauwirtha</title>
+<link href="favicon.ico" rel="icon" type="image/x-icon"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<style>
+/* --- Kompletný CSS štýl --- */
+:root {
+  --blue-dark:#005c8a;
+  --blue-light:#00a3e0;
+  --green:#7bb241;
+  --orange:#f7941d;
+  --text-color:#1a1a1a;
+  --menu-width:220px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background:#f7f9fa;color:var(--text-color);display:flex;min-height:100vh;line-height:1.6}
+nav{width:var(--menu-width);background-color:var(--blue-dark);padding:2rem 1rem;box-shadow:2px 0 5px rgba(0,0,0,0.1);position:sticky;top:0;height:100vh;z-index:20}
+nav ul{list-style:none}nav li{margin-bottom:1rem}nav a{color:white;text-decoration:none;font-weight:500;font-size:1rem;display:block;padding:.5rem;border-radius:4px;transition:all .3s}nav a:hover{background-color:var(--blue-light);transform:translateX(5px)}nav a.active{background-color:var(--orange);font-weight:bold}
+.main{flex:1;display:flex;flex-direction:column}
+header{background:linear-gradient(90deg,var(--blue-dark),var(--green),var(--orange));color:white;display:flex;align-items:center;padding:1.5rem 2rem;position:sticky;top:0;z-index:10}
+header img{height:80px;width:80px;border-radius:50%;margin-right:1.5rem;object-fit:contain;background:white;padding:.3rem;box-shadow:0 0 10px rgba(0,0,0,.2)}
+header h1{font-size:2rem;margin:0;line-height:1.2;text-shadow:1px 1px 3px rgba(0,0,0,.3)}
+.banner{width:100%;height:400px;overflow:hidden}
+.banner img{width:100%;height:100%;object-fit:cover;object-position:center}
+.virtual-tour-banner{background:linear-gradient(135deg,var(--blue-dark) 0%,var(--green) 100%);padding:2rem;margin:1rem 2rem;border-radius:8px;color:white}
+.tour-banner-content{max-width:1200px;margin:0 auto}
+.tour-iframe-container{position:relative;padding-bottom:45%;height:0;margin:1rem 0;border-radius:8px;overflow:hidden;box-shadow:0 4px 15px rgba(0,0,0,.2)}
+.tour-iframe-container iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none}
+.tour-btn{background:var(--orange);color:white;border:none;padding:.8rem 1.5rem;border-radius:50px;margin-top:.5rem;cursor:pointer;font-weight:bold;transition:all .3s;display:inline-flex;align-items:center;gap:.5rem}
+.tour-btn:hover{background:var(--blue-light);transform:translateY(-2px)}
+section{padding:2rem}
+.highlights{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:2rem}
+.card{background:white;border-radius:8px;padding:1.5rem;box-shadow:0 2px 5px rgba(0,0,0,.1);transition:transform .3s}
+.card:hover{transform:translateY(-5px)}
+.card h3{color:var(--blue-dark);margin-top:0;margin-bottom:1rem;display:flex;align-items:center;gap:.5rem}
+.study-program{border-left:4px solid var(--orange)}
+.two-columns{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin:2rem 0}
+.weather-container{background:white;border-radius:8px;padding:1.5rem;box-shadow:0 2px 5px rgba(0,0,0,.1);height:100%}
+.station-container{background:white;border-radius:8px;padding:1.5rem;box-shadow:0 2px 5px rgba(0,0,0,.1)}
+.station-header{display:flex;align-items:center;margin-bottom:1rem;border-bottom:2px solid var(--orange);padding-bottom:1rem}
+.station-title{font-size:1.5rem;color:var(--blue-dark);margin-left:1rem}
+.station-data{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.data-item{text-align:center;padding:.5rem;background:#f9f9f9;border-radius:8px;transition:all .3s}
+.data-item:hover{background:#f0f8ff;transform:translateY(-3px)}
+.data-value{font-size:1.8rem;font-weight:bold;color:var(--orange)}
+.data-label{color:var(--blue-dark);font-size:.9rem;font-weight:500}
+.contact-section form{display:flex;flex-direction:column;gap:1rem}
+.contact-section input,.contact-section textarea{width:100%;padding:.8rem;border:1px solid #ddd;border-radius:4px;font-family:inherit}
+.contact-section button{background-color:var(--orange);color:white;border:none;padding:.8rem 1.5rem;border-radius:4px;cursor:pointer;font-weight:bold;transition:background .3s}
+.contact-section button:hover{background-color:var(--blue-dark)}
+footer{background-color:var(--blue-dark);color:white;text-align:center;padding:1.5rem;margin-top:auto}
+</style>
+</head>
+<body>
+<nav>
+<ul>
+<li><a class="active" href="#home">Domov</a></li>
+<li><a href="#about">O nás</a></li>
+<li><a href="https://oatabb.edupage.org/" target="_blank" class="external-link">EduPage</a></li>
+<li><a href="#history">História</a></li>
+<li><a href="#applicants">Uchádzači</a></li>
+<li><a href="#study">Štúdium</a></li>
+<li><a href="#maturita">Maturita</a></li>
+<li><a href="#projects">Projekty</a></li>
+<li><a href="#docs">Dokumentácia</a></li>
+<li><a href="#contact" id="kontakt-link">Kontakt</a></li>
+</ul>
+</nav>
+<div class="main">
+<header id="home">
+<img alt="Logo školy" src="oa.png"/>
+<h1>Obchodná akadémia Mareka Frauwirtha<br/>Banská Bystrica</h1>
+</header>
+<div class="banner">
+<img alt="Budova školy" src="baner.jpg"/>
+</div>
+
+<section id="about">
+<h2>Vitajte na našej škole</h2>
+<p>Obchodná akadémia Mareka Frauwirtha v Banskej Bystrici poskytuje kvalitné obchodné a ekonomické vzdelávanie...</p>
+</section>
+
+<section id="events">
+<h2>Aktuálne udalosti</h2>
+<div class="highlights">
+<div class="card"><img alt="Aktuálna udalosť" src="Image_1.jpg" style="width:100%; border-radius:8px;"/></div>
+<div class="card gallery-card" onclick="otvorGaleriu(0)">
+<img alt="Športový deň" src="https://raw.githubusercontent.com/oamfbb/oamfbb.github.io/Sportovy_den/images/sportovy_den/1.jpg" style="width:100%; border-radius:8px;"/>
+<h3>Športový deň</h3>
+<p><strong>Dátum:</strong> 15. jún 2025</p>
+<p>Pozrite si fotky z nášho športového dňa.</p>
+</div>
+</div>
+</section>
+
+<!-- Virtuálna prehliadka pod udalosťami -->
+<div class="virtual-tour-banner">
+  <div class="tour-banner-content">
+    <h3><i class="fas fa-street-view"></i> Virtuálna prehliadka školy</h3>
+    <p>Preskúmajte naše priestory: vstup, jedáleň a aulu</p>
+    <div class="tour-iframe-container">
+      <iframe src="https://www.google.com/maps/embed?pb=!4v1755762238393!..." loading="lazy" allowfullscreen></iframe>
+    </div>
+  </div>
+</div>
+
+<section id="contact">
+<h2>Kontakt</h2>
+<form id="contactForm">
+<input id="name" name="name" placeholder="Meno" required type="text"/>
+<input id="email" name="email" placeholder="Email" required type="email"/>
+<textarea id="message" name="message" placeholder="Vaša správa" required rows="4"></textarea>
+<button type="submit">Odoslať</button>
+</form>
+</section>
+
+<footer>
+<p>© 2024 Obchodná akadémia Mareka Frauwirtha</p>
+</footer>
+</div>
+<script>
+function otvorGaleriu(i){alert('Tu sa otvorí galéria – zatiaľ demo.');}
+</script>
+</body>
+</html>
